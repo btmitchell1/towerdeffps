@@ -1,0 +1,19 @@
+﻿  TowerDefenceFPS.cpp
+c:\users\btmitchell1\desktop\towerdefencefps\towerdefencefps.cpp(44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\btmitchell1\desktop\towerdefencefps\towerdefencefps.cpp(140): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+c:\users\btmitchell1\desktop\towerdefencefps\towerdefencefps.cpp(209): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\btmitchell1\desktop\towerdefencefps\towerdefencefps.cpp(220): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\btmitchell1\desktop\towerdefencefps\towerdefencefps.cpp(289): warning C4018: '<': signed/unsigned mismatch
+c:\users\btmitchell1\desktop\towerdefencefps\towerdefencefps.cpp(528): warning C4018: '<': signed/unsigned mismatch
+c:\users\btmitchell1\desktop\towerdefencefps\towerdefencefps.cpp(587): warning C4018: '<': signed/unsigned mismatch
+c:\users\btmitchell1\desktop\towerdefencefps\towerdefencefps.cpp(640): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
+c:\users\btmitchell1\desktop\towerdefencefps\towerdefencefps.cpp(643): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
+c:\users\btmitchell1\desktop\towerdefencefps\towerdefencefps.cpp(646): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
+c:\users\btmitchell1\desktop\towerdefencefps\towerdefencefps.cpp(649): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
+c:\users\btmitchell1\desktop\towerdefencefps\towerdefencefps.cpp(702): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\btmitchell1\desktop\towerdefencefps\towerdefencefps.cpp(661): warning C4101: 'tmp': unreferenced local variable
+c:\users\btmitchell1\desktop\towerdefencefps\towerdefencefps.cpp(789): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+  Top Down Controls.cpp
+  Generating Code...
+  TowerDefenceFPS.vcxproj -> C:\Users\btmitchell1\Desktop\TowerDefenceFPS\\TowerDefenceFPSDebug.exe
+  TowerDefenceFPS.vcxproj -> C:\Users\btmitchell1\Desktop\TowerDefenceFPS\\TowerDefenceFPS.pdb (Full PDB)
