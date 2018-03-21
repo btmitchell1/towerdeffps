@@ -29,7 +29,7 @@ void main()
 	// Create a 3D engine (using TLX engine here) and open a window for it
 	//myEngine->StartFullscreen();
 	myEngine->StartWindowed(1920, 1080);
-	const int kMenuPosY = myEngine->GetHeight() - 126;
+	const int kMenuPosY = myEngine->GetHeight() - 120;
 
 	// Add default folder for meshes and other media
 	myEngine->AddMediaFolder("C:\\ProgramData\\TL-Engine\\Media");
@@ -643,16 +643,16 @@ void main()
 				switch (menuSelection)
 				{
 				case buildTower:
-					SMenuSprite = myEngine->CreateSprite("bar menu 1.png", kMenuPosX, kMenuPosY);
+					SMenuSprite = myEngine->CreateSprite("Menu Sel1.png", kMenuPosX, kMenuPosY);
 					break;
 					case buildWall:
-						SMenuSprite = myEngine->CreateSprite("bar menu 2.png", kMenuPosX, kMenuPosY);
+						SMenuSprite = myEngine->CreateSprite("Menu Sel2.png", kMenuPosX, kMenuPosY);
 						break;
 					case upgrade:
-						SMenuSprite = myEngine->CreateSprite("bar menu 3.png", kMenuPosX, kMenuPosY);
+						SMenuSprite = myEngine->CreateSprite("Menu Sel3.png", kMenuPosX, kMenuPosY);
 						break;
 					case sell:
-						SMenuSprite = myEngine->CreateSprite("bar menu 4.png", kMenuPosX, kMenuPosY);
+						SMenuSprite = myEngine->CreateSprite("Menu Sel4.png", kMenuPosX, kMenuPosY);
 						break;
 				default:
 					break;

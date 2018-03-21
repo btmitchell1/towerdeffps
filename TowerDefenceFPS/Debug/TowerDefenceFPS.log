@@ -1,17 +1,16 @@
 ﻿  TowerDefenceFPS.cpp
-c:\users\btmitchell1\desktop\towerdefencefps\towerdefencefps.cpp(44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\btmitchell1\desktop\towerdefencefps\towerdefencefps.cpp(142): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-c:\users\btmitchell1\desktop\towerdefencefps\towerdefencefps.cpp(215): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\btmitchell1\desktop\towerdefencefps\towerdefencefps.cpp(226): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\btmitchell1\desktop\towerdefencefps\towerdefencefps.cpp(295): warning C4018: '<': signed/unsigned mismatch
-c:\users\btmitchell1\desktop\towerdefencefps\towerdefencefps.cpp(534): warning C4018: '<': signed/unsigned mismatch
-c:\users\btmitchell1\desktop\towerdefencefps\towerdefencefps.cpp(593): warning C4018: '<': signed/unsigned mismatch
-c:\users\btmitchell1\desktop\towerdefencefps\towerdefencefps.cpp(646): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
-c:\users\btmitchell1\desktop\towerdefencefps\towerdefencefps.cpp(649): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
-c:\users\btmitchell1\desktop\towerdefencefps\towerdefencefps.cpp(652): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
-c:\users\btmitchell1\desktop\towerdefencefps\towerdefencefps.cpp(655): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
-c:\users\btmitchell1\desktop\towerdefencefps\towerdefencefps.cpp(708): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\btmitchell1\desktop\towerdefencefps\towerdefencefps.cpp(667): warning C4101: 'tmp': unreferenced local variable
-c:\users\btmitchell1\desktop\towerdefencefps\towerdefencefps.cpp(795): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
-  TowerDefenceFPS.vcxproj -> C:\Users\btmitchell1\Desktop\TowerDefenceFPS\\TowerDefenceFPSDebug.exe
-  TowerDefenceFPS.vcxproj -> C:\Users\btmitchell1\Desktop\TowerDefenceFPS\\TowerDefenceFPS.pdb (Full PDB)
+c:\users\btmitchell1\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\btmitchell1\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(142): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+c:\users\btmitchell1\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(215): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\btmitchell1\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(226): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\btmitchell1\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(295): warning C4018: '<': signed/unsigned mismatch
+c:\users\btmitchell1\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(534): warning C4018: '<': signed/unsigned mismatch
+c:\users\btmitchell1\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(593): warning C4018: '<': signed/unsigned mismatch
+c:\users\btmitchell1\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(646): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
+c:\users\btmitchell1\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(649): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
+c:\users\btmitchell1\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(652): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
+c:\users\btmitchell1\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(655): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
+c:\users\btmitchell1\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(708): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\btmitchell1\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(667): warning C4101: 'tmp': unreferenced local variable
+c:\users\btmitchell1\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(795): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+  TowerDefenceFPS.vcxproj -> C:\Users\btmitchell1\Documents\GitHub\towerdeffps\TowerDefenceFPS\\TowerDefenceFPSDebug.exe
