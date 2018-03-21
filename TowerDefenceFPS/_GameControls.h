@@ -15,7 +15,6 @@ const enum Types { Wall, Clear, Wood, Water };
 const enum EMouseCapture { on, off };
 const enum EBuildingType { none, tower1, tower2, wall };
 const enum ETowerState { null, building, built };
-const enum ESelectedMenu { buildTower, buildWall, sell, upgrade };
 
 struct Node
 {
@@ -35,7 +34,13 @@ const EKeyCode kKeyTower = Key_1;
 const EKeyCode kKeyWall = Key_2;
 const EKeyCode kKeyUpgrade = Key_3;
 const EKeyCode kKeySell = Key_4;
+const EKeyCode kKeyContinue = Key_5;
 const EKeyCode kKeySelect = Mouse_LButton;
+const int kBuildTowerButton = 1;
+const int kBuildWallButton = 2;
+const int kUpgradeBuildingButton = 3;
+const int kSellBuildingButton = 4;
+const int kContinueButton = 5;
 
 // Camera Constants
 const int kSizeX = 10;
@@ -59,8 +64,8 @@ const float kHideY = 1000.0f; // Length in Y that the tile moves when switching 
 
 // Tower //
 // Animation
-const float kTowerDropHeight = 300.0f;
-const float kTowerDropSpeed = 400.0f;
+const float kTowerDropHeight = 500.0f;
+const float kTowerDropSpeed = 800.0f;
 // Attack
 const int kTowerDamage = 10;
 const float kTowerAttackSpeed = 1.0f;

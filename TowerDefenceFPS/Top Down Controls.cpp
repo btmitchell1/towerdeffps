@@ -14,11 +14,13 @@ void CBuilding::CreateModel(float x, float z, EBuildingType type, IMesh* mesh, I
 	mMesh = mesh;
 	mModel = mesh->CreateModel(x, kTowerDropHeight, z);
 	mDummy = dummyMesh->CreateModel(x, kFloorHeight, z);
-	mAmmo = ammoMesh->CreateModel(x, kFloorHeight, z);
+	mAmmo = ammoMesh->CreateModel(x, -kHideY, z);
 
 	mType = type;
 
 	mState = building;
+
+	mDropMutliplier = 1.0f;
 }
 
 void CBuilding::UpgradeBuilding(IMesh* newMesh, float x, float z)
@@ -100,11 +102,17 @@ void CBuilding::AnimBuy(float frameTime)
 
 	if (towerHeight >= kFloorHeight && mState == building)
 	{
-		mModel->MoveY(-kTowerDropSpeed * frameTime);
+		mModel->MoveY(-kTowerDropSpeed * frameTime * mDropMutliplier);
+		if (mModel->GetY() < 200.0f)
+		{
+			if (mDropMutliplier > 0.1f)
+			mDropMutliplier -= 0.004f;
+		}
 	}
 	else
 	{
 		mModel->SetY(kFloorHeight);
+		mAmmo->SetY(kFloorHeight);
 		mState = built;
 		//towerSound.play();
 	}

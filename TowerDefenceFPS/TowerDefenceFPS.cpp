@@ -15,7 +15,7 @@ ASTAR Pathfind;
 bool DoOnce = true;
 
 //methods
-void Developer(ICamera * myCamera, IFont * myFont, IModel * GunDummy);
+void Developer(ICamera * myCamera, IFont * myFont, IModel * GunDummy, float wheelMovement);
 void SetCameraFPS(ICamera * myCamera, IModel* fpsDummy);
 void SetCameraTopDown(ICamera * myCamera);
 bool Found(CBuilding* array[kSizeX][kSizeZ], int x, int z);
@@ -28,7 +28,8 @@ void main()
 	gameType mode = start;
 	// Create a 3D engine (using TLX engine here) and open a window for it
 	//myEngine->StartFullscreen();
-	myEngine->StartWindowed(1920, 1080);
+	myEngine->StartWindowed(1600, 900);
+	const int kMenuPosX = myEngine->GetWidth() - 1600;
 	const int kMenuPosY = myEngine->GetHeight() - 120;
 
 	// Add default folder for meshes and other media
@@ -141,13 +142,13 @@ void main()
 	IMesh* TileMesh = myEngine->LoadMesh("Square.x");
 	CurrentTileModel = TileMesh->CreateModel(currentX, (-scale * 5), currentZ);
 	CurrentTileModel->RotateLocalX(90.0f);
-	CurrentTileModel->SetSkin("blue.png");
+	CurrentTileModel->SetSkin("newblue.png");
 	CurrentTileModel->Scale(scale);
 
 	ISprite* SMenuSprite = nullptr;
 	EMouseCapture mouseCap = on;
-	ESelectedMenu menuSelection = buildTower;
-	ESelectedMenu oldMenuSelection = menuSelection;
+	int menuSelection = 1;
+	int oldMenuSelection = menuSelection;
 	CPlayer* player = new CPlayer(kStartingBalance);
 
 
@@ -202,7 +203,7 @@ void main()
 		myEngine->DrawScene();
 		frameTime = myEngine->Timer(); // Time between frames
 		//Developer(myCamera, myFont, gunDummy);
-		//Developer(myCamera, myFont);
+		//Developer(myCamera, myFont,gunDummy, myEngine->GetMouseWheelMovement());
 
 
 		///////////
@@ -287,8 +288,6 @@ void main()
 					laserCounter++;
 
 				}
-
-
 			}
 
 			//enemys
@@ -444,21 +443,69 @@ void main()
 				}
 			}
 
+			// Menu Key Control
 			if (myEngine->KeyHit(kKeyTower))
 			{
-				menuSelection = buildTower;
+				menuSelection = 1;
 			}
 			else if (myEngine->KeyHit(kKeyWall))
 			{
-				menuSelection = buildWall;
+				menuSelection = 2;
 			}
 			else if (myEngine->KeyHit(kKeyUpgrade))
 			{
-				menuSelection = upgrade;
+				menuSelection = 3;
 			}
 			else if (myEngine->KeyHit(kKeySell))
 			{
-				menuSelection = sell;
+				menuSelection = 4;
+			}
+			else if (myEngine->KeyHit(kKeyContinue))
+			{
+				menuSelection = 5;
+			}
+
+			// Scroll wheel menu
+			float wheelMovement = myEngine->GetMouseWheelMovement();
+			if (wheelMovement > 0.0f)
+			{
+				if (menuSelection < 5)
+				{
+					++menuSelection;
+				}
+			}
+			else if (wheelMovement < 0.0f)
+			{
+				if (menuSelection > 1)
+				{
+					--menuSelection;
+				}
+			}
+			
+			// Menu
+			if (SMenuSprite != NULL)
+			{
+				myEngine->RemoveSprite(SMenuSprite);
+			}
+			switch (menuSelection)
+			{
+			case kBuildTowerButton:
+				SMenuSprite = myEngine->CreateSprite("Menu Sel1.png", kMenuPosX, kMenuPosY);
+				break;
+			case kBuildWallButton:
+				SMenuSprite = myEngine->CreateSprite("Menu Sel2.png", kMenuPosX, kMenuPosY);
+				break;
+			case kUpgradeBuildingButton:
+				SMenuSprite = myEngine->CreateSprite("Menu Sel3.png", kMenuPosX, kMenuPosY);
+				break;
+			case kSellBuildingButton:
+				SMenuSprite = myEngine->CreateSprite("Menu Sel4.png", kMenuPosX, kMenuPosY);
+				break;
+			case kContinueButton:
+				SMenuSprite = myEngine->CreateSprite("Menu Sel5.png", kMenuPosX, kMenuPosY);
+				break;
+			default:
+				break;
 			}
 
 			if (myEngine->KeyHit(kKeySelect))
@@ -466,7 +513,7 @@ void main()
 
 				switch (menuSelection)
 				{
-				case upgrade:
+				case kUpgradeBuildingButton:
 				{
 					// Upgrade tower
 					if (player->GetBalance() + kTower2Cost >= 0)
@@ -483,7 +530,7 @@ void main()
 					}
 				}
 				break;
-				case sell:
+				case kSellBuildingButton:
 				{
 					// Sell building
 					int x = currentX;
@@ -520,7 +567,7 @@ void main()
 					}
 					break;
 				}
-				case buildTower:
+				case kBuildTowerButton:
 					// Create Tower
 
 					//if player has funds
@@ -573,15 +620,13 @@ void main()
 
 						
 							BuildingArray[x][z]->AnimBuy(frameTime);
-							
-							
 
 							player->ChangeBalance(kTower1Cost);
 						}
 					}
 
 					break;
-				case buildWall:
+				case kBuildWallButton:
 					// Create Wall
 					if (player->GetBalance() > 0)
 					{
@@ -630,33 +675,39 @@ void main()
 						}
 					}
 					break;
-				default:
-					break;
-				}
-			}
-
-			// Menu
-			if (SMenuSprite != NULL)
-			{
-				myEngine->RemoveSprite(SMenuSprite);
-			}
-				switch (menuSelection)
+				case kContinueButton:
 				{
-				case buildTower:
-					SMenuSprite = myEngine->CreateSprite("Menu Sel1.png", kMenuPosX, kMenuPosY);
-					break;
-					case buildWall:
-						SMenuSprite = myEngine->CreateSprite("Menu Sel2.png", kMenuPosX, kMenuPosY);
-						break;
-					case upgrade:
-						SMenuSprite = myEngine->CreateSprite("Menu Sel3.png", kMenuPosX, kMenuPosY);
-						break;
-					case sell:
-						SMenuSprite = myEngine->CreateSprite("Menu Sel4.png", kMenuPosX, kMenuPosY);
-						break;
+					if (mode == topDown)
+					{
+						mode = fps;
+						SetCameraFPS(myCamera, fpsDummy);
+						CurrentTileModel->MoveY(-kHideY);
+						SMenuSprite->SetZ(-1);
+					}
+
+					else if (mode == fps)
+					{
+						mode = topDown;
+						SetCameraTopDown(myCamera);
+						CurrentTileModel->MoveY(kHideY);
+						for (int i = 0; i < kClipSize; ++i)
+						{
+							laser[i]->SetPosition(0.0f, -kHideY, 0.0f);
+						}
+						//reload
+						laserCounter = 0;
+					}
+
+					else if (mode == start)
+					{
+						mode = topDown;
+						SetCameraTopDown(myCamera);
+					}
+				}
 				default:
 					break;
 				}
+			}
 
 
 			///////////////
@@ -712,36 +763,7 @@ void main()
 		//exit
 		if (myEngine->KeyHit(Key_Escape)) myEngine->Stop();
 
-		//swap modes
-		if (myEngine->KeyHit(Key_5))
-		{
-			if (mode == topDown)
-			{
-				mode = fps;
-				SetCameraFPS(myCamera, fpsDummy);
-				CurrentTileModel->MoveY(-kHideY);
-				SMenuSprite->SetZ(-1);
-			}
-
-			else if (mode == fps)
-			{
-				mode = topDown;
-				SetCameraTopDown(myCamera);
-				CurrentTileModel->MoveY(kHideY);
-				for (int i = 0; i < kClipSize; ++i)
-				{
-					laser[i]->SetPosition(0.0f, -kHideY, 0.0f);
-				}
-				//reload
-				laserCounter = 0;
-			}
-
-			else if (mode == start)
-			{
-				mode = topDown;
-				SetCameraTopDown(myCamera);
-			}
-		}
+		
 	}
 
 	/////////////
@@ -765,7 +787,7 @@ void main()
 
 
 //Method definitions (put in seperate files later?)
-void Developer(ICamera * myCamera, IFont * myFont, IModel * GunDummy)
+void Developer(ICamera * myCamera, IFont * myFont, IModel * GunDummy, float wheelMovement)
 {
 	//Camera
 	myFont->Draw(to_string(myCamera->GetX()), 0, 0);
@@ -776,6 +798,7 @@ void Developer(ICamera * myCamera, IFont * myFont, IModel * GunDummy)
 	myFont->Draw(to_string(GunDummy->GetX()), 0, 60);
 	myFont->Draw(to_string(GunDummy->GetY()), 0, 80);
 	myFont->Draw(to_string(GunDummy->GetZ()), 0, 100);
+	myFont->Draw(to_string(wheelMovement), 0, 120);
 }
 
 void SetCameraFPS(ICamera * myCamera, IModel* fpsDummy)

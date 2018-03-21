@@ -25,8 +25,6 @@ const float kCurrentMoveSpeed = 10.0f;
 // UI
 const int kMouseBoundaryX = 640;
 const int kMouseBoundaryY = 360;
-const int kMenuPosX = 0;
-//float kMenuPosY = 0.0f;
 
 
 // BALANCE CONSTANTS //
@@ -70,6 +68,8 @@ private:
 	ETowerState mState;
 	float mX;
 	float mZ;
+
+	float mDropMutliplier;
 public:
 	CBuilding();
 
