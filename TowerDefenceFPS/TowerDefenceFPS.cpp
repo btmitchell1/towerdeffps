@@ -122,7 +122,7 @@ void main()
 	IMesh* Tower1Mesh = myEngine->LoadMesh("Building03.x");
 	IMesh* Tower2Mesh = myEngine->LoadMesh("Building07.x");
 	IMesh* Wall1Mesh = myEngine->LoadMesh("LargeGenericCrate.x");
-	IMesh* AmmoMesh = myEngine->LoadMesh("bullet.x");
+	IMesh* AmmoMesh = myEngine->LoadMesh("Projectile3.x");
 
 	CBuilding* BuildingArray[kSizeX][kSizeZ];
 
