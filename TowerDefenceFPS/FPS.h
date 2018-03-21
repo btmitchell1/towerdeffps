@@ -11,7 +11,7 @@
 #include "AstarFun.h"
 using namespace tle;
 
-const float kFpsStartCoords[3] = { 10.0f * scale * 9.0f, 10.0f, 10.0f * scale * 9.0f };
+const float kFpsStartCoords[3] = { 10.0f * scale * 0.0f, 12.0f, 10.0f * scale * 20.0f };
 const float kCameraSensitivity = 2.0f;
 
 const float kProjectileSpeed = 10.0f;

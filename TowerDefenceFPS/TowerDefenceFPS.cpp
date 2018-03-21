@@ -53,6 +53,8 @@ void main()
 	IMesh* CubeMesh = myEngine->LoadMesh("cube.x");
 	IMesh* SphereMesh = myEngine->LoadMesh("sphere.x");
 	IMesh* DummyMesh = myEngine->LoadMesh("dummy.x");
+	IMesh* SkyMesh = myEngine->LoadMesh("Skybox 07.x");
+	IModel* skyBox = SkyMesh->CreateModel(0.0f, -1000.0f, 0.0f);
 
 	//Variables	
 	float frameTime = myEngine->Timer();
@@ -99,7 +101,7 @@ void main()
 			{
 			case Wall: ModelArray[i][j]->SetSkin("brick1.jpg");
 				break;
-			case Clear: ModelArray[i][j]->SetSkin("wood2.jpg");
+			case Clear: ModelArray[i][j]->SetSkin("metalFloor.png");
 				break;
 			case Wood: ModelArray[i][j]->SetSkin("Grass1.jpg");
 				break;
@@ -153,7 +155,10 @@ void main()
 	// F P S // Jons Code
 	///////////
 
+	IMesh* gunMesh = myEngine->LoadMesh("autofrag.x");
+
 	IModel* fpsDummy = DummyMesh->CreateModel(kFpsStartCoords[0], kFpsStartCoords[1], kFpsStartCoords[2]);
+	IModel* gunModel = gunMesh->CreateModel(0.3f, -0.2f, 0.5f);
 	IModel* gunDummy = DummyMesh->CreateModel(kFpsStartCoords[0], kFpsStartCoords[1], kFpsStartCoords[2]);
 
 	IMesh* laserMesh = myEngine->LoadMesh("Projectile3.x");
@@ -182,6 +187,7 @@ void main()
 
 	gunDummy->SetPosition(0, 0, 1.0f);
 	gunDummy->AttachToParent(myCamera);
+	gunModel->AttachToParent(myCamera);
 	float rofTimer = 0.0f; //Rate Of Fire Timer
 	float reloadTimer = 5.0f;
 
