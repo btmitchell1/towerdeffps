@@ -209,8 +209,8 @@ bool ASTAR::Patrol(IModel* Player, int &PatrolNum, float Timer)
 {
 	Player->LookAt(Curve[PatrolNum]);
 	Player->MoveLocalZ(kEnemySpeed * Timer);
-
-	if (PatrolNum > (kCurveCounter - ( kCurveCounter / 9)))
+	int Test = kCurveCounter / 2;
+	if (PatrolNum >= Test)
 	{
 		return true;
 	}
