@@ -146,7 +146,6 @@ void main()
 	CurrentTileModel->Scale(scale);
 
 	ISprite* SMenuSprite = nullptr;
-	EMouseCapture mouseCap = on;
 	int menuSelection = 1;
 	int oldMenuSelection = menuSelection;
 	CPlayer* player = new CPlayer(kStartingBalance);
@@ -189,6 +188,7 @@ void main()
 	gunDummy->SetPosition(0, 0, 1.0f);
 	gunDummy->AttachToParent(myCamera);
 	gunModel->AttachToParent(myCamera);
+	gunModel->MoveY(-kHideY);
 	float rofTimer = 0.0f; //Rate Of Fire Timer
 	float reloadTimer = 5.0f;
 
@@ -388,22 +388,10 @@ void main()
 			// T O W E R  P L A C E M E N T // Bens Code
 			//////////////////////////////////
 
-			int mouseX = myEngine->GetMouseX();
-			int mouseY = myEngine->GetMouseY();
 			stringstream outText;
 			outText << "Balance" << player->GetBalance();
 			myFont->Draw(outText.str(), 20, 20);
 			outText.str(""); // Clear myStream
-
-
-			if (mouseCap == on)
-			{
-				myEngine->StartMouseCapture();
-			}
-			else
-			{
-				myEngine->StopMouseCapture();
-			}
 
 			//Cursor Movement
 			if (myEngine->KeyHit(kKeyMoveUp))
@@ -482,7 +470,7 @@ void main()
 				}
 			}
 			
-			// Menu
+			// Menu sprites
 			if (SMenuSprite != NULL)
 			{
 				myEngine->RemoveSprite(SMenuSprite);
@@ -513,6 +501,119 @@ void main()
 
 				switch (menuSelection)
 				{
+				case kBuildTowerButton:
+					// Create Tower
+
+					//if player has funds
+					if (player->GetBalance() > 0)
+					{
+						int x = currentX;
+						int z = currentZ;
+						bool CanCreate = false;
+						// If no building exists already
+						if (!Found(BuildingArray, x, z)) 
+						{
+							CanCreate = true;
+							//if tower is placed on Astar Line
+							for (int i = 0; i < Pathfind.FinalPath.size(); i++)
+							{
+								//find the tile that it was placed on
+								if (x == Pathfind.FinalPath[i]->x && z == Pathfind.FinalPath[i]->y)
+								{
+									Pathfind.CurrentMap[x][z] = 0; //set it to a wall
+									Pathfind.DeleteEverything(CircleMesh);
+									Pathfind.kCurveCounter = 0;
+									DisplayMap(Pathfind.CurrentMap);
+									//Check pathfinding
+									if (Pathfind.AStar(Start, Goal, Pathfind.CurrentMap, CircleMesh))
+									{
+										Pathfind.LineMaker(CircleMesh);
+									}
+									//if pathfinder didn't find its end
+									else
+									{
+										CanCreate = false;
+										Pathfind.CurrentMap[x][z] = 1;
+										Pathfind.DeleteEverything(CircleMesh);
+										Pathfind.kCurveCounter = 0;
+										DisplayMap(Pathfind.CurrentMap);
+										if (Pathfind.AStar(Start, Goal, Pathfind.CurrentMap, CircleMesh))
+										{
+											Pathfind.LineMaker(CircleMesh);
+										}
+									}
+
+								}
+							}
+						}
+						//if tower doesn't already exist
+						if (CanCreate)
+						{
+							//Set Map to 0
+							Pathfind.CurrentMap[x][z] = 0;
+
+							//Create the damn thing
+							BuildingArray[x][z]->CreateModel(currentX * scale * CubeSize, currentZ * scale * CubeSize, EBuildingType::tower1, Tower1Mesh, DummyMesh, AmmoMesh);
+							
+							// Deduct balance
+							player->ChangeBalance(kTower1Cost);
+						}
+					}
+
+					break;
+				case kBuildWallButton:
+					// Create Wall
+					if (player->GetBalance() > 0)
+					{
+						int x = currentX;
+						int z = currentZ;
+						bool CanCreate = false;
+
+						// If no building exists already
+						if (!Found(BuildingArray, x, z))
+						{
+							CanCreate = true;
+							//if tower is placed on Astar Line
+							for (int i = 0; i < Pathfind.FinalPath.size(); i++)
+							{
+								//find the tile that it was placed on
+								if (x == Pathfind.FinalPath[i]->x && z == Pathfind.FinalPath[i]->y)
+								{
+									Pathfind.CurrentMap[x][z] = 0; //set it to a wall
+									Pathfind.DeleteEverything(CircleMesh);
+									Pathfind.kCurveCounter = 0;
+									DisplayMap(Pathfind.CurrentMap);
+									//Check pathfinding
+									if (Pathfind.AStar(Start, Goal, Pathfind.CurrentMap, CircleMesh))
+									{
+										Pathfind.LineMaker(CircleMesh);
+									}
+
+									//if pathfinder didn't find its end
+									else
+									{
+										CanCreate = false;
+										Pathfind.CurrentMap[x][z] = 1;
+										Pathfind.DeleteEverything(CircleMesh);
+										Pathfind.kCurveCounter = 0;
+										DisplayMap(Pathfind.CurrentMap);
+										if (Pathfind.AStar(Start, Goal, Pathfind.CurrentMap, CircleMesh))
+										{
+											Pathfind.LineMaker(CircleMesh);
+										}
+									}
+								}
+							}
+						}
+
+						if (CanCreate)
+						{
+							BuildingArray[x][z]->CreateModel(currentX * scale * CubeSize, currentZ * scale * CubeSize, EBuildingType::wall, Wall1Mesh, DummyMesh, AmmoMesh);
+
+							player->ChangeBalance(kWall1Cost);
+						}
+					}
+					break;
 				case kUpgradeBuildingButton:
 				{
 					// Upgrade tower
@@ -567,114 +668,6 @@ void main()
 					}
 					break;
 				}
-				case kBuildTowerButton:
-					// Create Tower
-
-					//if player has funds
-					if (player->GetBalance() > 0)
-					{
-						int x = currentX;
-						int z = currentZ;
-						bool CanCreate = true;
-
-						//if tower is placed on Astar Line
-						for (int i = 0; i < Pathfind.FinalPath.size(); i++)
-						{
-							//find the tile that it was placed on
-							if (x == Pathfind.FinalPath[i]->x && z == Pathfind.FinalPath[i]->y)
-							{
-								Pathfind.CurrentMap[x][z] = 0; //set it to a wall
-								Pathfind.DeleteEverything(CircleMesh);
-								Pathfind.kCurveCounter = 0;
-								DisplayMap(Pathfind.CurrentMap);
-								//Check pathfinding
-								if (Pathfind.AStar(Start, Goal, Pathfind.CurrentMap, CircleMesh))
-								{
-									Pathfind.LineMaker(CircleMesh);
-								}
-
-								//if pathfinder didn't find its end
-								else
-								{
-									CanCreate = false;
-									Pathfind.CurrentMap[x][z] = 1;
-									Pathfind.DeleteEverything(CircleMesh);
-									Pathfind.kCurveCounter = 0;
-									DisplayMap(Pathfind.CurrentMap);
-									if (Pathfind.AStar(Start, Goal, Pathfind.CurrentMap, CircleMesh))
-									{
-										Pathfind.LineMaker(CircleMesh);
-									}
-								}
-
-							}
-						}
-						//if tower doesn't already exist
-						if (!Found(BuildingArray, x, z) && CanCreate)
-						{
-							//Set Map to 0
-							Pathfind.CurrentMap[x][z] = 0;
-
-							//Create the damn thing
-							BuildingArray[x][z]->CreateModel(currentX * scale * CubeSize, currentZ * scale * CubeSize, EBuildingType::tower1, Tower1Mesh, DummyMesh, AmmoMesh);
-
-						
-							BuildingArray[x][z]->AnimBuy(frameTime);
-
-							player->ChangeBalance(kTower1Cost);
-						}
-					}
-
-					break;
-				case kBuildWallButton:
-					// Create Wall
-					if (player->GetBalance() > 0)
-					{
-						int x = currentX;
-						int z = currentZ;
-						bool CanCreate = true;
-
-						//if tower is placed on Astar Line
-						for (int i = 0; i < Pathfind.FinalPath.size(); i++)
-						{
-							//find the tile that it was placed on
-							if (x == Pathfind.FinalPath[i]->x && z == Pathfind.FinalPath[i]->y)
-							{
-								Pathfind.CurrentMap[x][z] = 0; //set it to a wall
-								Pathfind.DeleteEverything(CircleMesh);
-								Pathfind.kCurveCounter = 0;
-								DisplayMap(Pathfind.CurrentMap);
-								//Check pathfinding
-								if (Pathfind.AStar(Start, Goal, Pathfind.CurrentMap, CircleMesh))
-								{
-									Pathfind.LineMaker(CircleMesh);
-								}
-
-								//if pathfinder didn't find its end
-								else
-								{
-									CanCreate = false;
-									Pathfind.CurrentMap[x][z] = 1;
-									Pathfind.DeleteEverything(CircleMesh);
-									Pathfind.kCurveCounter = 0;
-									DisplayMap(Pathfind.CurrentMap);
-									if (Pathfind.AStar(Start, Goal, Pathfind.CurrentMap, CircleMesh))
-									{
-										Pathfind.LineMaker(CircleMesh);
-									}
-								}
-
-							}
-						}
-
-						if (!Found(BuildingArray, x, z) && CanCreate)
-						{
-							BuildingArray[x][z]->CreateModel(currentX * scale * CubeSize, currentZ * scale * CubeSize, EBuildingType::wall, Wall1Mesh, DummyMesh, AmmoMesh);
-
-							player->ChangeBalance(kWall1Cost);
-						}
-					}
-					break;
 				case kContinueButton:
 				{
 					if (mode == topDown)
@@ -683,6 +676,7 @@ void main()
 						SetCameraFPS(myCamera, fpsDummy);
 						CurrentTileModel->MoveY(-kHideY);
 						SMenuSprite->SetZ(-1);
+						gunModel->MoveY(kHideY);
 					}
 
 					else if (mode == fps)
@@ -696,6 +690,7 @@ void main()
 						}
 						//reload
 						laserCounter = 0;
+						gunModel->MoveY(-kHideY);
 					}
 
 					else if (mode == start)
@@ -708,31 +703,7 @@ void main()
 					break;
 				}
 			}
-
-
-			///////////////
-			// ANIMATION //
-			///////////////
-			bool built = false;
-
-			IModel* tmp;
-			for (int x = 0; x < kSizeX; ++x)
-			{
-				for (int z = 0; z < kSizeZ; ++z)
-				{
-					if (Found(BuildingArray, x, z))
-					{
-						built = BuildingArray[x][z]->GetState();
-						if (built)
-						{
-							BuildingArray[x][z]->AnimBuy(frameTime);
-						}
-					}
-				}
-			}
 		}
-
-
 		// Game state: START
 		else if (mode == start)
 		{
@@ -760,10 +731,27 @@ void main()
 			}
 		}
 
+		///////////////
+		// ANIMATION // - Placed here to stop tower freezing in air when switching to FPS mode
+		///////////////
+		bool built = false;
+		for (int x = 0; x < kSizeX; ++x)
+		{
+			for (int z = 0; z < kSizeZ; ++z)
+			{
+				if (Found(BuildingArray, x, z))
+				{
+					built = BuildingArray[x][z]->GetState();
+					if (built)
+					{
+						BuildingArray[x][z]->AnimBuy(frameTime);
+					}
+				}
+			}
+		}
+
 		//exit
 		if (myEngine->KeyHit(Key_Escape)) myEngine->Stop();
-
-		
 	}
 
 	/////////////

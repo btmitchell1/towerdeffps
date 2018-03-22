@@ -112,7 +112,10 @@ void CBuilding::AnimBuy(float frameTime)
 	else
 	{
 		mModel->SetY(kFloorHeight);
-		mAmmo->SetY(kFloorHeight + 10.0f);
+		if (mType == tower1)
+		{
+			mAmmo->SetY(kFloorHeight + 10.0f);
+		}
 		mState = built;
 		//towerSound.play();
 	}

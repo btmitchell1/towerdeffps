@@ -12,7 +12,6 @@ using namespace tle;
 
 const enum gameType { start, topDown, fps, paused, end };
 const enum Types { Wall, Clear, Wood, Water };
-const enum EMouseCapture { on, off };
 const enum EBuildingType { none, tower1, tower2, wall };
 const enum ETowerState { null, building, built };
 
