@@ -21,6 +21,7 @@ void SetCameraTopDown(ICamera * myCamera);
 bool Found(CBuilding* array[kSizeX][kSizeZ], int x, int z);
 bool SphereSphereCD(float sphere1X, float sphere1Z, float sphere1Radius, float sphere2X, float sphere2Z, float sphere2Radius);
 float MAX(float a, float b);
+void BorderCollision(IModel* fpsDummy, float oldX, float oldZ);
 
 
 void main()
@@ -54,8 +55,10 @@ void main()
 	IMesh* CubeMesh = myEngine->LoadMesh("cube.x");
 	IMesh* SphereMesh = myEngine->LoadMesh("sphere.x");
 	IMesh* DummyMesh = myEngine->LoadMesh("dummy.x");
-	IMesh* SkyMesh = myEngine->LoadMesh("Skybox 07.x");
+	IMesh* SkyMesh = myEngine->LoadMesh("SkyboxTowerDefense.x");
 	IModel* skyBox = SkyMesh->CreateModel(0.0f, -1000.0f, 0.0f);
+	IMesh* GroundMesh = myEngine->LoadMesh("ground.x");
+	IModel* ground = GroundMesh->CreateModel(0.0f, -0.1f, 0.0f);
 
 	//Variables	
 	float frameTime = myEngine->Timer();
@@ -213,6 +216,9 @@ void main()
 		if (mode == fps)
 		{
 
+			float oldX = fpsDummy->GetX();
+			float oldZ = fpsDummy->GetZ();
+
 			cameraXRotation = (myEngine->GetMouseMovementY());
 
 			if (cameraXRotation > kCameraSensitivity)
@@ -250,6 +256,10 @@ void main()
 			{
 				fpsDummy->MoveLocalX(frameTime * gameSpeed);
 			}
+
+
+			BorderCollision(fpsDummy, oldX, oldZ);
+
 
 			if (myEngine->KeyHit(Key_R))
 			{
@@ -854,4 +864,24 @@ float MAX(float a, float b)
 	a < b ? a = b : a;
 
 	return a;
+}
+
+void BorderCollision(IModel* fpsDummy, float oldX, float oldZ)
+{
+	if (fpsDummy->GetX() > ((CubeSize * gMapWidth)-5) * scale)
+	{
+		fpsDummy->SetX(oldX);
+	}
+	else if (fpsDummy->GetX() < -5 *scale)
+	{
+		fpsDummy->SetX(oldX);
+	}
+	if (fpsDummy->GetZ() > ((CubeSize * gMapHeight) - 5) * scale)
+	{
+		fpsDummy->SetZ(oldZ);
+	}
+	else if (fpsDummy->GetZ() < -5 * scale)
+	{
+		fpsDummy->SetZ(oldZ);
+	}
 }
