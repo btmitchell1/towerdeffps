@@ -296,6 +296,12 @@ void main()
 				if (!enemyList[i].EndReached)
 				{
 					enemyList[i].EndReached = Pathfind.Patrol(enemyList[i].model, enemyList[i].PatrolRoute, PathRadius);
+					myFont->Draw(to_string(enemyList[i].PatrolRoute), 0, i * 25);
+				}
+
+				else
+				{
+					enemyList[i].model->SetY(-kHideY);
 				}
 			}
 
@@ -608,6 +614,9 @@ void main()
 
 						if (CanCreate)
 						{
+							//Set Map to 0
+							Pathfind.CurrentMap[x][z] = 0;
+
 							BuildingArray[x][z]->CreateModel(currentX * scale * CubeSize, currentZ * scale * CubeSize, EBuildingType::wall, Wall1Mesh, DummyMesh, AmmoMesh);
 
 							player->ChangeBalance(kWall1Cost);
