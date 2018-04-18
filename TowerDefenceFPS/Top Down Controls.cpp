@@ -21,6 +21,8 @@ void CBuilding::CreateModel(float x, float z, EBuildingType type, IMesh* mesh, I
 	mState = building;
 
 	mDropMutliplier = 1.0f;
+
+	mAmmoTimer = 0.0f;
 }
 
 void CBuilding::UpgradeBuilding(IMesh* newMesh, float x, float z)
@@ -114,7 +116,7 @@ void CBuilding::AnimBuy(float frameTime)
 		mModel->SetY(kFloorHeight);
 		if (mType == tower1)
 		{
-			mAmmo->SetY(kFloorHeight + 10.0f);
+			mAmmo->SetY(kFloorHeight + 5.0f);
 		}
 		mState = built;
 		//towerSound.play();
@@ -144,14 +146,19 @@ bool CBuilding::EnemyInRange(float eX, float eZ)
 void CBuilding::Attack(IModel* enemy, float frameTime)
 {
 	mAmmo->LookAt(enemy);
-	mAmmo->MoveLocalZ(70.0f * frameTime);
+	mAmmo->MoveLocalZ(100.0f * frameTime);
 
 	bool hit = SphereSphereCD(mAmmo->GetX(), mAmmo->GetZ(), 1.0f,
-		enemy->GetX(), enemy->GetZ(), 5.0f);
+		enemy->GetX(), enemy->GetZ(), 2.0f);
 
-	if (hit)
+	if (mAmmoTimer > 3.0f || hit)
 	{
-		mAmmo->SetPosition(mX, kFloorHeight, mZ);
+		mAmmo->SetPosition(mX, kFloorHeight + 5.0f, mZ);
+		mAmmoTimer = 0.0f;
+	}
+	else
+	{
+		mAmmoTimer += frameTime;
 	}
 }
 
