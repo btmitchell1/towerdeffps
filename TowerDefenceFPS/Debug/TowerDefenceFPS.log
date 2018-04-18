@@ -1,4 +1,5 @@
 ﻿  TowerDefenceFPS.cpp
+<<<<<<< HEAD
 c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(146): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
 c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(222): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
@@ -43,3 +44,33 @@ TL-Engine2017Debug.lib(IrrlichtFont.obj) : warning LNK4099: PDB '3DEngine.pdb' w
 TL-Engine2017Debug.lib(IrrlichtEngine.obj) : warning LNK4099: PDB '3DEngine.pdb' was not found with 'TL-Engine2017Debug.lib(IrrlichtEngine.obj)' or at 'C:\Users\Daniel\Documents\Github\towerdeffps\TowerDefenceFPS\3DEngine.pdb'; linking object as if no debug info
 TL-Engine2017Debug.lib(IrrlichtCamera.obj) : warning LNK4099: PDB '3DEngine.pdb' was not found with 'TL-Engine2017Debug.lib(IrrlichtCamera.obj)' or at 'C:\Users\Daniel\Documents\Github\towerdeffps\TowerDefenceFPS\3DEngine.pdb'; linking object as if no debug info
   TowerDefenceFPS.vcxproj -> C:\Users\Daniel\Documents\Github\towerdeffps\TowerDefenceFPS\\TowerDefenceFPSDebug.exe
+=======
+c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(146): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(222): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(233): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(304): warning C4018: '<': signed/unsigned mismatch
+c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(513): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
+c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(516): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
+c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(519): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
+c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(522): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
+c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(525): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
+c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(550): warning C4018: '<': signed/unsigned mismatch
+c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(609): warning C4018: '<': signed/unsigned mismatch
+c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(765): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(841): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+  Generating Code...
+  Compiling...
+  _GameControls.cpp
+  Top Down Controls.cpp
+  FPS.cpp
+  AstarFun.cpp
+c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\astarfun.cpp(12): warning C4018: '<': signed/unsigned mismatch
+c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\astarfun.cpp(20): warning C4018: '<': signed/unsigned mismatch
+c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\astarfun.cpp(78): warning C4018: '<': signed/unsigned mismatch
+c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\astarfun.cpp(136): warning C4018: '<': signed/unsigned mismatch
+c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\astarfun.cpp(166): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  TowerDefenceFPS.vcxproj -> C:\Users\btmitchell1\Documents\GitHub\towerdef\TowerDefenceFPS\\TowerDefenceFPSDebug.exe
+  TowerDefenceFPS.vcxproj -> C:\Users\btmitchell1\Documents\GitHub\towerdef\TowerDefenceFPS\\TowerDefenceFPS.pdb (Full PDB)
+>>>>>>> c7183deeeab841ab97341de62b3172d341258292

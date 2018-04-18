@@ -485,6 +485,22 @@ void main()
 					--menuSelection;
 				}
 			}
+
+			// Arrow keys
+			if (myEngine->KeyHit(Key_Right))
+			{
+				if (menuSelection < 5)
+				{
+					++menuSelection;
+				}
+			}
+			else if (myEngine->KeyHit(Key_Left))
+			{
+				if (menuSelection > 1)
+				{
+					--menuSelection;
+				}
+			}
 			
 			// Menu sprites
 			if (SMenuSprite != NULL)

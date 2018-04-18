@@ -70,6 +70,8 @@ private:
 	float mZ;
 
 	float mDropMutliplier;
+
+	float mAmmoTimer;
 public:
 	CBuilding();
 
