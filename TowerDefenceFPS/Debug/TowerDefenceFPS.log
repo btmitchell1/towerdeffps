@@ -4,17 +4,19 @@ c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.c
 c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(222): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(233): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(304): warning C4018: '<': signed/unsigned mismatch
-c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(497): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
-c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(500): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
-c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(503): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
-c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(506): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
-c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(509): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
-c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(534): warning C4018: '<': signed/unsigned mismatch
-c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(593): warning C4018: '<': signed/unsigned mismatch
-c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(749): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(825): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
-  Top Down Controls.cpp
+c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(513): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
+c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(516): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
+c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(519): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
+c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(522): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
+c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(525): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
+c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(550): warning C4018: '<': signed/unsigned mismatch
+c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(609): warning C4018: '<': signed/unsigned mismatch
+c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(765): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\towerdefencefps.cpp(841): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+  Generating Code...
+  Compiling...
   _GameControls.cpp
+  Top Down Controls.cpp
   FPS.cpp
   AstarFun.cpp
 c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\astarfun.cpp(12): warning C4018: '<': signed/unsigned mismatch
@@ -23,24 +25,5 @@ c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\astarfun.cpp(78):
 c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\astarfun.cpp(136): warning C4018: '<': signed/unsigned mismatch
 c:\users\btmitchell1\documents\github\towerdef\towerdefencefps\astarfun.cpp(166): warning C4018: '<': signed/unsigned mismatch
   Generating Code...
-TL-Engine2017Debug.lib(TL-Engine.obj) : warning LNK4099: PDB 'TL-Engine.pdb' was not found with 'TL-Engine2017Debug.lib(TL-Engine.obj)' or at 'C:\Users\btmitchell1\Documents\GitHub\towerdef\TowerDefenceFPS\TL-Engine.pdb'; linking object as if no debug info
-TL-Engine2017Debug.lib(Errors.obj) : warning LNK4099: PDB 'Common.pdb' was not found with 'TL-Engine2017Debug.lib(Errors.obj)' or at 'C:\Users\btmitchell1\Documents\GitHub\towerdef\TowerDefenceFPS\Common.pdb'; linking object as if no debug info
-TL-Engine2017Debug.lib(TLXSprite.obj) : warning LNK4099: PDB '3DEngine.pdb' was not found with 'TL-Engine2017Debug.lib(TLXSprite.obj)' or at 'C:\Users\btmitchell1\Documents\GitHub\towerdef\TowerDefenceFPS\3DEngine.pdb'; linking object as if no debug info
-TL-Engine2017Debug.lib(TLXSceneNode.obj) : warning LNK4099: PDB '3DEngine.pdb' was not found with 'TL-Engine2017Debug.lib(TLXSceneNode.obj)' or at 'C:\Users\btmitchell1\Documents\GitHub\towerdef\TowerDefenceFPS\3DEngine.pdb'; linking object as if no debug info
-TL-Engine2017Debug.lib(TLXModelNode.obj) : warning LNK4099: PDB '3DEngine.pdb' was not found with 'TL-Engine2017Debug.lib(TLXModelNode.obj)' or at 'C:\Users\btmitchell1\Documents\GitHub\towerdef\TowerDefenceFPS\3DEngine.pdb'; linking object as if no debug info
-TL-Engine2017Debug.lib(TLXModel.obj) : warning LNK4099: PDB '3DEngine.pdb' was not found with 'TL-Engine2017Debug.lib(TLXModel.obj)' or at 'C:\Users\btmitchell1\Documents\GitHub\towerdef\TowerDefenceFPS\3DEngine.pdb'; linking object as if no debug info
-TL-Engine2017Debug.lib(TLXMesh.obj) : warning LNK4099: PDB '3DEngine.pdb' was not found with 'TL-Engine2017Debug.lib(TLXMesh.obj)' or at 'C:\Users\btmitchell1\Documents\GitHub\towerdef\TowerDefenceFPS\3DEngine.pdb'; linking object as if no debug info
-TL-Engine2017Debug.lib(TLXLight.obj) : warning LNK4099: PDB '3DEngine.pdb' was not found with 'TL-Engine2017Debug.lib(TLXLight.obj)' or at 'C:\Users\btmitchell1\Documents\GitHub\towerdef\TowerDefenceFPS\3DEngine.pdb'; linking object as if no debug info
-TL-Engine2017Debug.lib(TLXFont.obj) : warning LNK4099: PDB '3DEngine.pdb' was not found with 'TL-Engine2017Debug.lib(TLXFont.obj)' or at 'C:\Users\btmitchell1\Documents\GitHub\towerdef\TowerDefenceFPS\3DEngine.pdb'; linking object as if no debug info
-TL-Engine2017Debug.lib(TLXEngine.obj) : warning LNK4099: PDB '3DEngine.pdb' was not found with 'TL-Engine2017Debug.lib(TLXEngine.obj)' or at 'C:\Users\btmitchell1\Documents\GitHub\towerdef\TowerDefenceFPS\3DEngine.pdb'; linking object as if no debug info
-TL-Engine2017Debug.lib(TLXCamera.obj) : warning LNK4099: PDB '3DEngine.pdb' was not found with 'TL-Engine2017Debug.lib(TLXCamera.obj)' or at 'C:\Users\btmitchell1\Documents\GitHub\towerdef\TowerDefenceFPS\3DEngine.pdb'; linking object as if no debug info
-TL-Engine2017Debug.lib(IrrlichtSceneNode.obj) : warning LNK4099: PDB '3DEngine.pdb' was not found with 'TL-Engine2017Debug.lib(IrrlichtSceneNode.obj)' or at 'C:\Users\btmitchell1\Documents\GitHub\towerdef\TowerDefenceFPS\3DEngine.pdb'; linking object as if no debug info
-TL-Engine2017Debug.lib(IrrlichtModel.obj) : warning LNK4099: PDB '3DEngine.pdb' was not found with 'TL-Engine2017Debug.lib(IrrlichtModel.obj)' or at 'C:\Users\btmitchell1\Documents\GitHub\towerdef\TowerDefenceFPS\3DEngine.pdb'; linking object as if no debug info
-TL-Engine2017Debug.lib(IrrlichtMesh.obj) : warning LNK4099: PDB '3DEngine.pdb' was not found with 'TL-Engine2017Debug.lib(IrrlichtMesh.obj)' or at 'C:\Users\btmitchell1\Documents\GitHub\towerdef\TowerDefenceFPS\3DEngine.pdb'; linking object as if no debug info
-TL-Engine2017Debug.lib(IrrlichtLight.obj) : warning LNK4099: PDB '3DEngine.pdb' was not found with 'TL-Engine2017Debug.lib(IrrlichtLight.obj)' or at 'C:\Users\btmitchell1\Documents\GitHub\towerdef\TowerDefenceFPS\3DEngine.pdb'; linking object as if no debug info
-TL-Engine2017Debug.lib(IrrlichtInput.obj) : warning LNK4099: PDB '3DEngine.pdb' was not found with 'TL-Engine2017Debug.lib(IrrlichtInput.obj)' or at 'C:\Users\btmitchell1\Documents\GitHub\towerdef\TowerDefenceFPS\3DEngine.pdb'; linking object as if no debug info
-TL-Engine2017Debug.lib(IrrlichtFont.obj) : warning LNK4099: PDB '3DEngine.pdb' was not found with 'TL-Engine2017Debug.lib(IrrlichtFont.obj)' or at 'C:\Users\btmitchell1\Documents\GitHub\towerdef\TowerDefenceFPS\3DEngine.pdb'; linking object as if no debug info
-TL-Engine2017Debug.lib(IrrlichtEngine.obj) : warning LNK4099: PDB '3DEngine.pdb' was not found with 'TL-Engine2017Debug.lib(IrrlichtEngine.obj)' or at 'C:\Users\btmitchell1\Documents\GitHub\towerdef\TowerDefenceFPS\3DEngine.pdb'; linking object as if no debug info
-TL-Engine2017Debug.lib(IrrlichtCamera.obj) : warning LNK4099: PDB '3DEngine.pdb' was not found with 'TL-Engine2017Debug.lib(IrrlichtCamera.obj)' or at 'C:\Users\btmitchell1\Documents\GitHub\towerdef\TowerDefenceFPS\3DEngine.pdb'; linking object as if no debug info
   TowerDefenceFPS.vcxproj -> C:\Users\btmitchell1\Documents\GitHub\towerdef\TowerDefenceFPS\\TowerDefenceFPSDebug.exe
   TowerDefenceFPS.vcxproj -> C:\Users\btmitchell1\Documents\GitHub\towerdef\TowerDefenceFPS\\TowerDefenceFPS.pdb (Full PDB)
