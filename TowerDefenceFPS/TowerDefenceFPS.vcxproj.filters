@@ -38,9 +38,6 @@
     <ClInclude Include="Top Down Controls.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Map.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
     <ClInclude Include="_GameControls.h">
       <Filter>Headers</Filter>
     </ClInclude>

@@ -6,6 +6,8 @@
 #include <fstream>
 #include <vector>
 #include <memory>
+#include <sstream>
+#include "FPS.h"
 
 using namespace std;
 using namespace tle;

@@ -75,6 +75,7 @@ void main()
 	///////////////////////
 	// M A P & A S T A R // Dans Code
 	///////////////////////
+
 	//int CurrentMap[gMapWidth][gMapHeight]; //Array of all the Map Numbers
 	shared_ptr<Node> Start(new Node);
 	shared_ptr<Node> Goal(new Node);
@@ -180,13 +181,12 @@ void main()
 	///////////////////
 
 	IMesh* ballMesh = myEngine->LoadMesh("cube.x");
-	vector <enemy> enemyList;
-
-	enemyList.push_back({ ballMesh->CreateModel(0, 0, 0),10.0f,  10, 0, 0.0f });
-	enemyList.push_back({ ballMesh->CreateModel(-100, 0, 0),10.0f,  10, 0, 0.0f });
-	enemyList.push_back({ ballMesh->CreateModel(-200, 0, 0),10.0f,  10, 0, 0.0f });
-	enemyList.push_back({ ballMesh->CreateModel(-300, 0, 0),10.0f,  10, 0, 0.0f });
-	enemyList.push_back({ ballMesh->CreateModel(-400, 0, 0),10.0f,  10, 0, 0.0f });
+	vector <enemy*> enemyList;
+	//enemyList.push_back({ ballMesh->CreateModel(0, 0, 0),10.0f,  10, 0, 0.0f });
+	//enemyList.push_back({ ballMesh->CreateModel(-100, 0, 0),10.0f,  10, 0, 0.0f });
+	//enemyList.push_back({ ballMesh->CreateModel(-200, 0, 0),10.0f,  10, 0, 0.0f });
+	//enemyList.push_back({ ballMesh->CreateModel(-300, 0, 0),10.0f,  10, 0, 0.0f });
+	//enemyList.push_back({ ballMesh->CreateModel(-400, 0, 0),10.0f,  10, 0, 0.0f });
 
 	gunDummy->SetPosition(0, 0, 1.0f);
 	gunDummy->AttachToParent(myCamera);
@@ -205,8 +205,6 @@ void main()
 		// Draw the scene
 		myEngine->DrawScene();
 		frameTime = myEngine->Timer(); // Time between frames
-		//Developer(myCamera, myFont, gunDummy);
-		//Developer(myCamera, myFont,gunDummy, myEngine->GetMouseWheelMovement());
 
 
 		///////////
@@ -303,15 +301,15 @@ void main()
 			//enemys
 			for (int i = 0; i < enemyList.size(); i++)
 			{
-				if (!enemyList[i].EndReached)
+				if (!enemyList[i]->GetEndReached())
 				{
-					enemyList[i].EndReached = Pathfind.Patrol(enemyList[i].model, enemyList[i].PatrolRoute, PathRadius);
-					myFont->Draw(to_string(enemyList[i].PatrolRoute), 0, i * 25);
+					enemyList[i]->SetEndReached(Pathfind.Patrol(enemyList[i]->GetModel(), enemyList[i]->GetPatrolRoute(), PathRadius));
+					myFont->Draw(to_string(enemyList[i]->GetPatrolRoute()), 0, i * 25);
 				}
 
 				else
 				{
-					enemyList[i].model->SetY(-kHideY);
+					enemyList[i]->GetModel->SetY(-kHideY);
 				}
 			}
 
@@ -368,10 +366,10 @@ void main()
 				{
 					for (auto& elt : enemyList)
 					{
-						shoot = BuildingArray[x][z]->EnemyInRange(elt.model->GetX(), elt.model->GetY());
+						shoot = BuildingArray[x][z]->EnemyInRange(elt->GetModel()->GetX(), elt->GetModel()->GetY());
 						if (shoot)
 						{
-							BuildingArray[x][z]->Attack(elt.model, frameTime);
+							BuildingArray[x][z]->Attack(elt->GetModel(), frameTime);
 						}
 					}
 				}
@@ -739,10 +737,15 @@ void main()
 				}
 			}
 		}
-		// Game state: START
+
+
+		/////////////////////////////
+		// L O A D I N G  M E N U //
+		////////////////////////////
+
 		else if (mode == start)
 		{
-			ModelTest->RotateLocalY(gameSpeed * frameTime * 0.01f);
+			ModelTest->RotateLocalY(gameSpeed * frameTime);
 			myFont->Draw("Defender: A Tower Defence Game ", myEngine->GetWidth() / 2, 0, kBlack, kCentre);
 
 			//Collision detection for start button
@@ -789,14 +792,18 @@ void main()
 		if (myEngine->KeyHit(Key_Escape)) myEngine->Stop();
 	}
 
+
+
+
 	/////////////
 	// Delete // When the game loop exits and you need to clean up the tiles
 	////////////
+
 	CubeMesh->RemoveModel(GoalModel);
 	Pathfind.DeleteEverything(CircleMesh); //delete floor tiles and red squares
 	Pathfind.kCurveCounter = 0; // Reset
 
-								//Remove Floor Tiles
+	//Remove Floor Tiles
 	for (int i = 0; i < gMapWidth; i++)
 	{
 		for (int j = 0; j < gMapHeight; j++)
@@ -804,6 +811,7 @@ void main()
 			CubeMesh->RemoveModel(ModelArray[i][j]);
 		}
 	}
+
 	myEngine->Delete(); 	// Delete the 3D engine now we are finished with it
 	exit(0);
 }

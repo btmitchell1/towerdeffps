@@ -128,3 +128,45 @@ void DisplayMap(int a[gMapWidth][gMapHeight])
 		cout << endl;
 	}
 }
+
+void LoadEnemies(vector <enemy*> &enemyList)
+{
+	enum MonsterType{Tank};
+	string EnemyFile = "Enemies.txt";
+	ifstream InFile(EnemyFile);
+	string line = "";
+	int tempType = 0;
+	int tempSize = 0;
+	// Error catcher for missing map
+	if (!InFile)
+	{
+		cout << "ERROR: ";
+		cout << "Can't open file " + EnemyFile + ", File May be missing... \n";
+	}
+
+	// If file was read succesfully, write the numbers to an array
+	else
+	{
+
+		while (!getline(InFile, line, '\n').eof())
+		{
+			istringstream iss(line);
+			if (!(iss >> tempType >> tempSize)) { break; } // error
+
+			for (int i = 0; i < tempSize; i++)
+			{
+				switch (tempType)
+				{
+				case Tank:
+					enemy *Temp = new Tank;
+					enemyList.push_back(Temp);
+					break;
+				default:
+					break;
+				}
+			}
+			// process pair (a,b)
+		}
+
+	}
+}
