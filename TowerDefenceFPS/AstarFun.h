@@ -42,7 +42,7 @@ class ASTAR {
 public:
 
 	int kCurveCounter = 0;
-	const float kEnemySpeed = 2.5f;
+	const float kEnemySpeed = 0.5f;
 	int CurrentMap[gMapWidth][gMapHeight];
 
 	IModel* Curve[1000];

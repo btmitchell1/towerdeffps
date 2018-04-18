@@ -1,17 +1,2 @@
-﻿  TowerDefenceFPS.cpp
-c:\users\jadams6\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\jadams6\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(146): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-c:\users\jadams6\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(222): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\jadams6\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(233): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\jadams6\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(304): warning C4018: '<': signed/unsigned mismatch
-c:\users\jadams6\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(497): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
-c:\users\jadams6\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(500): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
-c:\users\jadams6\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(503): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
-c:\users\jadams6\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(506): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
-c:\users\jadams6\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(509): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
-c:\users\jadams6\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(534): warning C4018: '<': signed/unsigned mismatch
-c:\users\jadams6\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(593): warning C4018: '<': signed/unsigned mismatch
-c:\users\jadams6\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(749): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\jadams6\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(825): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
-  TowerDefenceFPS.vcxproj -> C:\Users\jadams6\Documents\GitHub\towerdeffps\TowerDefenceFPS\\TowerDefenceFPSDebug.exe
-  TowerDefenceFPS.vcxproj -> C:\Users\jadams6\Documents\GitHub\towerdeffps\TowerDefenceFPS\\TowerDefenceFPS.pdb (Full PDB)
+﻿  Top Down Controls.cpp
+  TowerDefenceFPS.vcxproj -> C:\Users\BenMi\OneDrive\Documents\GitHub\towerdeffps\TowerDefenceFPS\\TowerDefenceFPSDebug.exe
