@@ -1,163 +1,140 @@
 ﻿  _GameControls.cpp
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(46): error C2065: 'gMapWidth': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(46): error C2065: 'gMapHeight': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(49): error C2065: 'Node': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(49): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(49): error C3203: 'shared_ptr': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(50): error C2065: 'Node': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(50): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(50): error C3203: 'shared_ptr': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(51): error C2065: 'Node': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(51): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(51): error C3203: 'shared_ptr': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(54): error C2065: 'Node': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(54): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(55): error C2065: 'Node': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(55): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(55): error C2065: 'gMapWidth': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(55): error C2065: 'gMapHeight': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(57): error C2065: 'Node': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(57): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(58): error C2065: 'Node': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(58): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(58): error C2065: 'gMapWidth': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(58): error C2065: 'gMapHeight': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\fps.h(16): error C2065: 'scale': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\fps.h(61): error C3646: 'IModel': unknown override specifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\fps.h(61): error C2143: syntax error: missing ';' before '*'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\fps.h(61): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\fps.h(61): error C2238: unexpected token(s) preceding ';'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\_gamecontrols.cpp(161): error C2061: syntax error: identifier 'Tank'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\_gamecontrols.cpp(164): error C2361: initialization of 'Temp' is skipped by 'default' label
-  c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\_gamecontrols.cpp(161): note: see declaration of 'Temp'
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(46): error C2065: 'gMapWidth': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(46): error C2065: 'gMapHeight': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(49): error C2065: 'Node': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(49): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(49): error C3203: 'shared_ptr': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(50): error C2065: 'Node': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(50): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(50): error C3203: 'shared_ptr': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(51): error C2065: 'Node': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(51): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(51): error C3203: 'shared_ptr': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(54): error C2065: 'Node': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(54): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(55): error C2065: 'Node': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(55): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(55): error C2065: 'gMapWidth': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(55): error C2065: 'gMapHeight': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(57): error C2065: 'Node': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(57): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(58): error C2065: 'Node': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(58): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(58): error C2065: 'gMapWidth': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(58): error C2065: 'gMapHeight': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\fps.h(16): error C2065: 'scale': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\_gamecontrols.cpp(161): error C2061: syntax error: identifier 'Tank'
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\_gamecontrols.cpp(164): error C2361: initialization of 'Temp' is skipped by 'default' label
+  c:\users\daniel\documents\github\towerdeffps\towerdefencefps\_gamecontrols.cpp(161): note: see declaration of 'Temp'
   TowerDefenceFPS.cpp
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(46): error C2065: 'gMapWidth': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(46): error C2065: 'gMapHeight': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(49): error C2065: 'Node': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(49): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(49): error C3203: 'shared_ptr': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(50): error C2065: 'Node': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(50): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(50): error C3203: 'shared_ptr': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(51): error C2065: 'Node': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(51): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(51): error C3203: 'shared_ptr': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(54): error C2065: 'Node': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(54): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(55): error C2065: 'Node': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(55): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(55): error C2065: 'gMapWidth': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(55): error C2065: 'gMapHeight': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(57): error C2065: 'Node': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(57): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(58): error C2065: 'Node': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(58): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(58): error C2065: 'gMapWidth': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(58): error C2065: 'gMapHeight': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\fps.h(16): error C2065: 'scale': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\fps.h(61): error C3646: 'IModel': unknown override specifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\fps.h(61): error C2143: syntax error: missing ';' before '*'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\fps.h(61): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\fps.h(61): error C2238: unexpected token(s) preceding ';'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(84): error C2664: 'bool GetMap(int [][10],std::string,std::shared_ptr<Node>,std::shared_ptr<Node>)': cannot convert argument 1 from 'int [1][1]' to 'int [][10]'
-  c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(84): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(85): error C2664: 'void DisplayMap(int [][10])': cannot convert argument 1 from 'int [1][1]' to 'int [][10]'
-  c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(85): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(147): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(220): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(231): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(302): warning C4018: '<': signed/unsigned mismatch
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(312): error C2227: left of '->SetY' must point to class/struct/union/generic type
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(394): error C2664: 'bool ASTAR::AStar(std::shared_ptr,std::shared_ptr,int [][1],tle::IMesh *)': cannot convert argument 1 from 'std::shared_ptr<Node>' to 'std::shared_ptr'
-  c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(394): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(511): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(514): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(517): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(520): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(523): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(548): warning C4018: '<': signed/unsigned mismatch
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(551): error C2227: left of '->x' must point to class/struct/union/generic type
-  c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(551): note: type is 'int'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(551): error C2227: left of '->y' must point to class/struct/union/generic type
-  c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(551): note: type is 'int'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(556): error C2664: 'void DisplayMap(int [][10])': cannot convert argument 1 from 'int [1][1]' to 'int [][10]'
-  c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(556): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(558): error C2664: 'bool ASTAR::AStar(std::shared_ptr,std::shared_ptr,int [][1],tle::IMesh *)': cannot convert argument 1 from 'std::shared_ptr<Node>' to 'std::shared_ptr'
-  c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(558): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(569): error C2664: 'void DisplayMap(int [][10])': cannot convert argument 1 from 'int [1][1]' to 'int [][10]'
-  c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(569): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(570): error C2664: 'bool ASTAR::AStar(std::shared_ptr,std::shared_ptr,int [][1],tle::IMesh *)': cannot convert argument 1 from 'std::shared_ptr<Node>' to 'std::shared_ptr'
-  c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(570): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(607): warning C4018: '<': signed/unsigned mismatch
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(610): error C2227: left of '->x' must point to class/struct/union/generic type
-  c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(610): note: type is 'int'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(610): error C2227: left of '->y' must point to class/struct/union/generic type
-  c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(610): note: type is 'int'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(615): error C2664: 'void DisplayMap(int [][10])': cannot convert argument 1 from 'int [1][1]' to 'int [][10]'
-  c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(615): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(617): error C2664: 'bool ASTAR::AStar(std::shared_ptr,std::shared_ptr,int [][1],tle::IMesh *)': cannot convert argument 1 from 'std::shared_ptr<Node>' to 'std::shared_ptr'
-  c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(617): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(629): error C2664: 'void DisplayMap(int [][10])': cannot convert argument 1 from 'int [1][1]' to 'int [][10]'
-  c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(629): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(630): error C2664: 'bool ASTAR::AStar(std::shared_ptr,std::shared_ptr,int [][1],tle::IMesh *)': cannot convert argument 1 from 'std::shared_ptr<Node>' to 'std::shared_ptr'
-  c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(630): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(695): error C2664: 'void DisplayMap(int [][10])': cannot convert argument 1 from 'int [1][1]' to 'int [][10]'
-  c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(695): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(697): error C2664: 'bool ASTAR::AStar(std::shared_ptr,std::shared_ptr,int [][1],tle::IMesh *)': cannot convert argument 1 from 'std::shared_ptr<Node>' to 'std::shared_ptr'
-  c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(697): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(768): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(839): error C2227: left of '->x' must point to class/struct/union/generic type
-  c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(839): note: type is 'int'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(839): error C2227: left of '->y' must point to class/struct/union/generic type
-  c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(839): note: type is 'int'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(839): error C2660: 'tle::ISceneNode::SetPosition': function does not take 2 arguments
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(849): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(46): error C2065: 'gMapWidth': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(46): error C2065: 'gMapHeight': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(49): error C2065: 'Node': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(49): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(49): error C3203: 'shared_ptr': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(50): error C2065: 'Node': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(50): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(50): error C3203: 'shared_ptr': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(51): error C2065: 'Node': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(51): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(51): error C3203: 'shared_ptr': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(54): error C2065: 'Node': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(54): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(55): error C2065: 'Node': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(55): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(55): error C2065: 'gMapWidth': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(55): error C2065: 'gMapHeight': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(57): error C2065: 'Node': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(57): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(58): error C2065: 'Node': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(58): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(58): error C2065: 'gMapWidth': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(58): error C2065: 'gMapHeight': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\fps.h(16): error C2065: 'scale': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(84): error C2664: 'bool GetMap(int [][10],std::string,std::shared_ptr<Node>,std::shared_ptr<Node>)': cannot convert argument 1 from 'int [1][1]' to 'int [][10]'
+  c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(84): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(85): error C2664: 'void DisplayMap(int [][10])': cannot convert argument 1 from 'int [1][1]' to 'int [][10]'
+  c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(85): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(147): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(220): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(231): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(302): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(312): error C2227: left of '->SetY' must point to class/struct/union/generic type
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(394): error C2664: 'bool ASTAR::AStar(std::shared_ptr,std::shared_ptr,int [][1],tle::IMesh *)': cannot convert argument 1 from 'std::shared_ptr<Node>' to 'std::shared_ptr'
+  c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(394): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(511): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(514): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(517): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(520): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(523): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(548): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(551): error C2227: left of '->x' must point to class/struct/union/generic type
+  c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(551): note: type is 'int'
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(551): error C2227: left of '->y' must point to class/struct/union/generic type
+  c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(551): note: type is 'int'
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(556): error C2664: 'void DisplayMap(int [][10])': cannot convert argument 1 from 'int [1][1]' to 'int [][10]'
+  c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(556): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(558): error C2664: 'bool ASTAR::AStar(std::shared_ptr,std::shared_ptr,int [][1],tle::IMesh *)': cannot convert argument 1 from 'std::shared_ptr<Node>' to 'std::shared_ptr'
+  c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(558): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(569): error C2664: 'void DisplayMap(int [][10])': cannot convert argument 1 from 'int [1][1]' to 'int [][10]'
+  c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(569): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(570): error C2664: 'bool ASTAR::AStar(std::shared_ptr,std::shared_ptr,int [][1],tle::IMesh *)': cannot convert argument 1 from 'std::shared_ptr<Node>' to 'std::shared_ptr'
+  c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(570): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(607): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(610): error C2227: left of '->x' must point to class/struct/union/generic type
+  c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(610): note: type is 'int'
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(610): error C2227: left of '->y' must point to class/struct/union/generic type
+  c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(610): note: type is 'int'
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(615): error C2664: 'void DisplayMap(int [][10])': cannot convert argument 1 from 'int [1][1]' to 'int [][10]'
+  c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(615): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(617): error C2664: 'bool ASTAR::AStar(std::shared_ptr,std::shared_ptr,int [][1],tle::IMesh *)': cannot convert argument 1 from 'std::shared_ptr<Node>' to 'std::shared_ptr'
+  c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(617): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(629): error C2664: 'void DisplayMap(int [][10])': cannot convert argument 1 from 'int [1][1]' to 'int [][10]'
+  c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(629): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(630): error C2664: 'bool ASTAR::AStar(std::shared_ptr,std::shared_ptr,int [][1],tle::IMesh *)': cannot convert argument 1 from 'std::shared_ptr<Node>' to 'std::shared_ptr'
+  c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(630): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(695): error C2664: 'void DisplayMap(int [][10])': cannot convert argument 1 from 'int [1][1]' to 'int [][10]'
+  c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(695): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(697): error C2664: 'bool ASTAR::AStar(std::shared_ptr,std::shared_ptr,int [][1],tle::IMesh *)': cannot convert argument 1 from 'std::shared_ptr<Node>' to 'std::shared_ptr'
+  c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(697): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(768): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(839): error C2227: left of '->x' must point to class/struct/union/generic type
+  c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(839): note: type is 'int'
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(839): error C2227: left of '->y' must point to class/struct/union/generic type
+  c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(839): note: type is 'int'
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(839): error C2660: 'tle::ISceneNode::SetPosition': function does not take 2 arguments
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\towerdefencefps.cpp(849): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
   Top Down Controls.cpp
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(46): error C2065: 'gMapWidth': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(46): error C2065: 'gMapHeight': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(49): error C2065: 'Node': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(49): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(49): error C3203: 'shared_ptr': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(50): error C2065: 'Node': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(50): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(50): error C3203: 'shared_ptr': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(51): error C2065: 'Node': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(51): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(51): error C3203: 'shared_ptr': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(54): error C2065: 'Node': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(54): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(55): error C2065: 'Node': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(55): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(55): error C2065: 'gMapWidth': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(55): error C2065: 'gMapHeight': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(57): error C2065: 'Node': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(57): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(58): error C2065: 'Node': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(58): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(58): error C2065: 'gMapWidth': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.h(58): error C2065: 'gMapHeight': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\fps.h(16): error C2065: 'scale': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\fps.h(61): error C3646: 'IModel': unknown override specifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\fps.h(61): error C2143: syntax error: missing ';' before '*'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\fps.h(61): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\fps.h(61): error C2238: unexpected token(s) preceding ';'
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(46): error C2065: 'gMapWidth': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(46): error C2065: 'gMapHeight': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(49): error C2065: 'Node': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(49): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(49): error C3203: 'shared_ptr': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(50): error C2065: 'Node': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(50): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(50): error C3203: 'shared_ptr': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(51): error C2065: 'Node': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(51): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(51): error C3203: 'shared_ptr': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(54): error C2065: 'Node': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(54): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(55): error C2065: 'Node': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(55): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(55): error C2065: 'gMapWidth': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(55): error C2065: 'gMapHeight': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(57): error C2065: 'Node': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(57): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(58): error C2065: 'Node': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(58): error C2923: 'std::shared_ptr': 'Node' is not a valid template type argument for parameter '_Ty'
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(58): error C2065: 'gMapWidth': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.h(58): error C2065: 'gMapHeight': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\fps.h(16): error C2065: 'scale': undeclared identifier
   AstarFun.cpp
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\fps.h(16): error C2065: 'scale': undeclared identifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\fps.h(61): error C3646: 'IModel': unknown override specifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\fps.h(61): error C2143: syntax error: missing ';' before '*'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\fps.h(61): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\fps.h(61): error C2238: unexpected token(s) preceding ';'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.cpp(12): warning C4018: '<': signed/unsigned mismatch
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.cpp(20): warning C4018: '<': signed/unsigned mismatch
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.cpp(78): warning C4018: '<': signed/unsigned mismatch
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.cpp(136): warning C4018: '<': signed/unsigned mismatch
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\astarfun.cpp(166): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
-  Compiling...
-  FPS.cpp
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\fps.h(61): error C3646: 'IModel': unknown override specifier
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\fps.h(61): error C2143: syntax error: missing ';' before '*'
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\fps.h(61): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\dmacarthur\documents\github\towerdeffps\towerdefencefps\fps.h(61): error C2238: unexpected token(s) preceding ';'
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\fps.h(16): error C2065: 'scale': undeclared identifier
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.cpp(12): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.cpp(20): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.cpp(78): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.cpp(136): warning C4018: '<': signed/unsigned mismatch
+c:\users\daniel\documents\github\towerdeffps\towerdefencefps\astarfun.cpp(166): warning C4018: '<': signed/unsigned mismatch
   Generating Code...
