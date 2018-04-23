@@ -10,10 +10,11 @@
 #include <ctype.h>
 #include <time.h>
 #include "_GameControls.h"
+#include "FPS.h"
 
 using namespace tle;
 
-//#include <Audio.hpp>
+#include <Audio.hpp>
 
 
 
@@ -43,16 +44,12 @@ const int kTower2Sale = 100;
 const int kWall1Cost = -75;
 const int kWall1Sale = 50;
 
+
+
 ///////////////////
 //// AUDIO CLASS //
 ///////////////////
-//sf::SoundBuffer towerBuffer;
-//sf::Sound towerSound;
-//sf::Vector3f towerSoundPos(0.0, 0.0, 0.0);
-//sf::Vector3f towerVelocity(0.0, 0.0, 0.0);
-//sf::Vector3f listenerPos(0.0, 0.0, 0.0);
-//sf::Vector3f listenerForward(0.0, 0.0, -1.0);
-//sf::Vector3f listenerUp(0.0, 1.0, 0.0);
+
 /////////////////////////////////////////
 
 ////////////////////
@@ -86,13 +83,15 @@ public:
 	float GetZ();
 	ETowerState GetState();
 
+	void PlaySound();
+
 	void ChangeState(ETowerState);
 
 	void AnimBuy(float);
 
 	bool EnemyInRange(float, float);
 
-	void Attack(IModel*, float);
+	void Attack(vector <enemy>, float);
 };
 
 

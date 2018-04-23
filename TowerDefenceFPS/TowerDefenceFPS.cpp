@@ -24,8 +24,100 @@ float MAX(float a, float b);
 void BorderCollision(IModel* fpsDummy, float oldX, float oldZ);
 
 
+sf::SoundBuffer musicBuffer;
+sf::SoundBuffer shootBuffer;
+sf::SoundBuffer reloadBuffer;
+sf::Sound musicSound;
+sf::Sound shootSound;
+sf::Sound reloadSound;
+sf::Vector3f soundPos(0.0, 0.0, 0.0);
+//sf::Vector3f soundVelocity(0.0, 0.0, 0.0);
+sf::Vector3f listenerPos(0.0, 0.0, 0.0);
+sf::Vector3f listenerForward(0.0, 0.0, -1.0);
+sf::Vector3f listenerUp(0.0, 1.0, 0.0);
+
 void main()
 {
+	if (!musicBuffer.loadFromFile("musicloop.wav"))
+	{
+		cout << "Error loading sound file" << endl;
+		while (!_kbhit());
+		return;
+	}
+
+
+	//****************
+	// Sources
+
+	// Indicate that our sound source will use the buffer we just loaded
+	musicSound.setBuffer(musicBuffer);
+
+	// Set the properties of the source. Details of all available properties are in the SFML documentation of the Sound class
+	musicSound.setVolume(100.0f); // 0 to 100
+	musicSound.setPitch(1.0f);
+	musicSound.setLoop(true);
+	musicSound.setPosition(soundPos);
+
+
+	//****************
+	// Listener
+
+	// Set the properties of the listener. These are all the available listener properties
+	// Note how this is doen with static member functions - there is no listener variable
+	sf::Listener::setGlobalVolume(100.0f); // 0 to 100
+	sf::Listener::setPosition(listenerPos);
+	sf::Listener::setDirection(listenerForward);
+	sf::Listener::setUpVector(listenerUp);
+
+	musicSound.play();
+	///////////////////////////////////////////////////
+
+	if (!shootBuffer.loadFromFile("shootgun.wav"))
+	{
+		cout << "Error loading sound file" << endl;
+		while (!_kbhit());
+		return;
+	}
+
+
+	//****************
+	// Sources
+
+	// Indicate that our sound source will use the buffer we just loaded
+	shootSound.setBuffer(shootBuffer);
+
+	// Set the properties of the source. Details of all available properties are in the SFML documentation of the Sound class
+	shootSound.setVolume(100.0f); // 0 to 100
+	shootSound.setPitch(1.0f);
+	shootSound.setLoop(false);
+	shootSound.setPosition(soundPos);
+
+	///////////////////////////////////////////////////
+	///////////////////////////////////////////////////
+
+	if (!reloadBuffer.loadFromFile("reload.wav"))
+	{
+		cout << "Error loading sound file" << endl;
+		while (!_kbhit());
+		return;
+	}
+
+
+	//****************
+	// Sources
+
+	// Indicate that our sound source will use the buffer we just loaded
+	reloadSound.setBuffer(reloadBuffer);
+
+	// Set the properties of the source. Details of all available properties are in the SFML documentation of the Sound class
+	reloadSound.setVolume(100.0f); // 0 to 100
+	reloadSound.setPitch(1.0f);
+	reloadSound.setLoop(false);
+	reloadSound.setPosition(soundPos);
+
+	///////////////////////////////////////////////////
+
+
 	gameType mode = start;
 	// Create a 3D engine (using TLX engine here) and open a window for it
 	//myEngine->StartFullscreen();
@@ -264,6 +356,7 @@ void main()
 			if (myEngine->KeyHit(Key_R))
 			{
 				reloadTimer = 0.0f;
+				reloadSound.play();
 			}
 
 			//reload
@@ -297,6 +390,7 @@ void main()
 					canFire = false;
 					laserCounter++;
 
+					shootSound.play();
 				}
 			}
 
@@ -362,19 +456,14 @@ void main()
 			// TOWER ATTACKS //
 			///////////////////
 			bool shoot = false;
-			for (int x = 0; x < kSizeX; ++x)
-			{
-				for (int z = 0; z < kSizeZ; ++z)
+
+				for (int x = 0; x < kSizeX; ++x)
 				{
-					for (auto& elt : enemyList)
+					for (int z = 0; z < kSizeZ; ++z)
 					{
-						shoot = BuildingArray[x][z]->EnemyInRange(elt.model->GetX(), elt.model->GetY());
-						if (shoot)
-						{
-							BuildingArray[x][z]->Attack(elt.model, frameTime);
-						}
+							BuildingArray[x][z]->Attack(enemyList, frameTime);
 					}
-				}
+				
 			}
 		}
 
