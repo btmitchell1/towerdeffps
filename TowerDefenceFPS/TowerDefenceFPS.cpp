@@ -14,6 +14,11 @@ const float gameSpeed = 20;
 ASTAR Pathfind;
 bool DoOnce = true;
 
+const float footStepTimePeriod = 0.5f;
+float footStepTimer = footStepTimePeriod;
+
+bool moved = false;
+
 //methods
 void Developer(ICamera * myCamera, IFont * myFont, IModel * GunDummy, float wheelMovement);
 void SetCameraFPS(ICamera * myCamera, IModel* fpsDummy);
@@ -24,40 +29,46 @@ float MAX(float a, float b);
 void BorderCollision(IModel* fpsDummy, float oldX, float oldZ);
 
 
-sf::SoundBuffer musicBuffer;
-sf::SoundBuffer shootBuffer;
-sf::SoundBuffer reloadBuffer;
-sf::Sound musicSound;
-sf::Sound shootSound;
-sf::Sound reloadSound;
-sf::Vector3f soundPos(0.0, 0.0, 0.0);
-//sf::Vector3f soundVelocity(0.0, 0.0, 0.0);
 sf::Vector3f listenerPos(0.0, 0.0, 0.0);
 sf::Vector3f listenerForward(0.0, 0.0, -1.0);
 sf::Vector3f listenerUp(0.0, 1.0, 0.0);
 
+
+
 void main()
 {
-	if (!musicBuffer.loadFromFile("musicloop.wav"))
+	const int kNumSounds = 7;
+	Sound sounds[kNumSounds];
+
+	sounds[0].soundName = "musicloop.wav";
+	sounds[1].soundName = "shootgun.wav";
+	sounds[2].soundName = "reload.wav";
+	sounds[3].soundName = "upgrade.wav";
+	sounds[4].soundName = "sell.wav";
+	sounds[5].soundName = "footstep.wav";
+	sounds[6].soundName = "enemymove.wav";
+
+	for (int i = 0; i < kNumSounds; ++i)
 	{
-		cout << "Error loading sound file" << endl;
-		while (!_kbhit());
-		return;
+		if (!sounds[i].buffer.loadFromFile(sounds[i].soundName))
+		{
+			cout << "Error loading sound file" << endl;
+			while (!_kbhit());
+			return;
+		}
+		// Sources
+		// Indicate that our sound source will use the buffer we just loaded
+		sounds[i].sound.setBuffer(sounds[i].buffer);
+		// Set the properties of the source. Details of all available properties are in the SFML documentation of the Sound class
+		sounds[i].sound.setVolume(100.0f); // 0 to 100
+		sounds[i].sound.setPitch(1.0f);
+		sounds[i].sound.setLoop(false);
+		sounds[i].sound.setPosition(sounds[i].soundPos);
 	}
+	sounds[0].sound.setLoop(true);
+	sounds[0].sound.play();
 
-
-	//****************
-	// Sources
-
-	// Indicate that our sound source will use the buffer we just loaded
-	musicSound.setBuffer(musicBuffer);
-
-	// Set the properties of the source. Details of all available properties are in the SFML documentation of the Sound class
-	musicSound.setVolume(100.0f); // 0 to 100
-	musicSound.setPitch(1.0f);
-	musicSound.setLoop(true);
-	musicSound.setPosition(soundPos);
-
+	sounds[5].sound.setVolume(40.0f);
 
 	//****************
 	// Listener
@@ -68,54 +79,6 @@ void main()
 	sf::Listener::setPosition(listenerPos);
 	sf::Listener::setDirection(listenerForward);
 	sf::Listener::setUpVector(listenerUp);
-
-	musicSound.play();
-	///////////////////////////////////////////////////
-
-	if (!shootBuffer.loadFromFile("shootgun.wav"))
-	{
-		cout << "Error loading sound file" << endl;
-		while (!_kbhit());
-		return;
-	}
-
-
-	//****************
-	// Sources
-
-	// Indicate that our sound source will use the buffer we just loaded
-	shootSound.setBuffer(shootBuffer);
-
-	// Set the properties of the source. Details of all available properties are in the SFML documentation of the Sound class
-	shootSound.setVolume(100.0f); // 0 to 100
-	shootSound.setPitch(1.0f);
-	shootSound.setLoop(false);
-	shootSound.setPosition(soundPos);
-
-	///////////////////////////////////////////////////
-	///////////////////////////////////////////////////
-
-	if (!reloadBuffer.loadFromFile("reload.wav"))
-	{
-		cout << "Error loading sound file" << endl;
-		while (!_kbhit());
-		return;
-	}
-
-
-	//****************
-	// Sources
-
-	// Indicate that our sound source will use the buffer we just loaded
-	reloadSound.setBuffer(reloadBuffer);
-
-	// Set the properties of the source. Details of all available properties are in the SFML documentation of the Sound class
-	reloadSound.setVolume(100.0f); // 0 to 100
-	reloadSound.setPitch(1.0f);
-	reloadSound.setLoop(false);
-	reloadSound.setPosition(soundPos);
-
-	///////////////////////////////////////////////////
 
 
 	gameType mode = start;
@@ -274,6 +237,7 @@ void main()
 	IMesh* ballMesh = myEngine->LoadMesh("cube.x");
 	vector <enemy> enemyList;
 
+	
 	enemyList.push_back({ ballMesh->CreateModel(0, 0, 0),10.0f,  10, 0, 0.0f });
 	enemyList.push_back({ ballMesh->CreateModel(-100, 0, 0),10.0f,  10, 0, 0.0f });
 	enemyList.push_back({ ballMesh->CreateModel(-200, 0, 0),10.0f,  10, 0, 0.0f });
@@ -327,26 +291,47 @@ void main()
 			fpsDummy->RotateLocalY(cameraYRotation);
 			myCamera->RotateLocalX(cameraXRotation);
 
-
+			
 			//controls
 			if (myEngine->KeyHeld(Key_W))
 			{
 				fpsDummy->MoveLocalZ(frameTime * gameSpeed);
+				moved = true;
 			}
 
 			if (myEngine->KeyHeld(Key_S))
 			{
 				fpsDummy->MoveLocalZ(-frameTime * gameSpeed);
+				moved = true;
 			}
 
 			if (myEngine->KeyHeld(Key_A))
 			{
 				fpsDummy->MoveLocalX(-frameTime * gameSpeed);
+				moved = true;
 			}
 
 			if (myEngine->KeyHeld(Key_D))
 			{
 				fpsDummy->MoveLocalX(frameTime * gameSpeed);
+				moved = true;
+			}
+
+			if (moved)
+			{
+				footStepTimer += frameTime;
+				if (footStepTimer >= footStepTimePeriod)
+				{
+					float high = 1.25f;
+					float low = 0.75f;
+					float randPitch = low + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (high - low)));
+					sounds[5].sound.setPitch(randPitch);
+					sounds[5].sound.play();
+
+					footStepTimer = 0.0f;
+				}
+
+				moved = false;
 			}
 
 
@@ -356,7 +341,7 @@ void main()
 			if (myEngine->KeyHit(Key_R))
 			{
 				reloadTimer = 0.0f;
-				reloadSound.play();
+				sounds[2].sound.play();
 			}
 
 			//reload
@@ -390,7 +375,7 @@ void main()
 					canFire = false;
 					laserCounter++;
 
-					shootSound.play();
+					sounds[1].sound.play();
 				}
 			}
 
@@ -751,6 +736,8 @@ void main()
 							BuildingArray[x][z]->UpgradeBuilding(Tower2Mesh, currentX * scale * CubeSize, currentZ  * scale * CubeSize);
 
 							player->ChangeBalance(kTower2Cost);
+
+							sounds[3].sound.play();
 						}
 					}
 				}
@@ -789,6 +776,8 @@ void main()
 						{
 							Pathfind.LineMaker(CircleMesh);
 						}
+
+						sounds[4].sound.play();
 					}
 					break;
 				}
