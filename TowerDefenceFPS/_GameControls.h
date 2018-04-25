@@ -7,25 +7,13 @@
 #include <vector>
 #include <memory>
 
-#include <Audio.hpp>
-
 using namespace std;
 using namespace tle;
 
-const enum gameType { StartGame, TopDown, Fps, Paused, End };
+const enum gameType { start, topDown, fps, paused, end };
 const enum Types { Wall, Clear, Wood, Water };
 const enum EBuildingType { none, tower1, tower2, wall };
 const enum ETowerState { null, building, built };
-
-
-struct Sound
-{
-	sf::SoundBuffer buffer;
-	sf::Sound sound;
-	string soundName;
-	sf::Vector3f soundPos;
-	sf::Vector3f soundVelocity;
-};
 
 struct Node
 {
@@ -54,8 +42,8 @@ const int kSellBuildingButton = 4;
 const int kContinueButton = 5;
 
 // Camera Constants
-//const int kSizeX = 10;
-//const int kSizeZ = 10;
+const int kSizeX = 10;
+const int kSizeZ = 10;
 const ECameraType kCameraType = kManual;
 const float kCameraX = 40.0f;
 const float kCameraY = 400.0f;
@@ -85,9 +73,11 @@ const float kTowerAttackRadius = 200.0f;
 // Enemy //
 const float kEnemyRadius = 1.0f;
 
-//Map Size
+
+//Map
 const int gMapWidth = 10;
 const int gMapHeight = 10;
+const float kBorderBuffer = 1.5f;
 
 bool GetMap(int MapArray[gMapWidth][gMapHeight], string MapFile, shared_ptr<Node> Start, shared_ptr<Node> Goal);
 void DisplayMap(int a[gMapWidth][gMapHeight]);

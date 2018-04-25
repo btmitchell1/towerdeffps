@@ -13,7 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{09E3BFC2-BE9D-42C6-AD13-08A2F474390E}</ProjectGuid>
     <RootNamespace>TowerDefenceFPS</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -63,7 +63,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\BenMi\OneDrive\Documents\GitHub\towerdeffps\TowerDefenceFPS\SFML-2.4.2\include\SFML;C:\Users\BenMi\OneDrive\Documents\GitHub\towerdeffps\TowerDefenceFPS\SFML-2.4.2;C:\Users\BenMi\OneDrive\Documents\GitHub\towerdeffps\TowerDefenceFPS\SFML-2.4.2\include;C:\ProgramData\TL-Engine\include;..\SFML-2.3.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\ProgramData\TL-Engine\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <PrecompiledHeader>
@@ -77,7 +77,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>C:\Users\BenMi\OneDrive\Documents\GitHub\towerdeffps\TowerDefenceFPS\SFML-2.4.2\lib;C:\ProgramData\TL-Engine\lib;..\SFML-2.3.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\ProgramData\TL-Engine\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(OutDir)TowerDefenceFPS.pdb</ProgramDatabaseFile>
       <DataExecutionPrevention>
@@ -85,7 +85,7 @@
       <OutputFile>$(SolutionDir)$(TargetName)$(TargetExt)</OutputFile>
       <SubSystem>Console</SubSystem>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
-      <AdditionalDependencies>TL-Engine2017Debug.lib;sfml-audio-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>TL-Engine2017Debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Message>Copying DLLs &amp; shaders...</Message>
@@ -94,7 +94,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\BenMi\OneDrive\Documents\GitHub\towerdeffps\TowerDefenceFPS\SFML-2.4.2;C:\Users\BenMi\OneDrive\Documents\GitHub\towerdeffps\TowerDefenceFPS\SFML-2.4.2\include;C:\ProgramData\TL-Engine\include;..\SFML-2.3.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\ProgramData\TL-Engine\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <BufferSecurityCheck>false</BufferSecurityCheck>
@@ -106,7 +106,7 @@
       <Optimization>MaxSpeed</Optimization>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>C:\Users\BenMi\OneDrive\Documents\GitHub\towerdeffps\TowerDefenceFPS\SFML-2.4.2\lib;C:\ProgramData\TL-Engine\lib;..\SFML-2.3.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\ProgramData\TL-Engine\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <DataExecutionPrevention>
