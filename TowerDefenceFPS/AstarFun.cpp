@@ -40,12 +40,12 @@ bool ASTAR::CheckCloseList(shared_ptr<Node> Current)
 	return false;
 }
 
-void ASTAR::CreateNode(int x, int y, shared_ptr<Node> Goal, shared_ptr<Node> Previous)
+void ASTAR::CreateNode(int x, int y, shared_ptr<Node> Goal, shared_ptr<Node> Previous, int Map[gMapWidth][gMapHeight], IMesh* CubeMesh)
 {
 	shared_ptr<Node> NewNode(new Node);
 	NewNode->x = x;
 	NewNode->y = y;
-	NewNode->Weight = CurrentMap[x][y];
+	NewNode->Weight = Map[x][y];
 	NewNode->Parent = Previous;
 	NewNode->ManDistance = abs(NewNode->x - Goal->x) + abs(NewNode->y - Goal->y);
 	NewNode->TotalScore = Previous->TotalScore + NewNode->ManDistance + NewNode->Weight - Previous->ManDistance;
@@ -63,7 +63,7 @@ void ASTAR::CreateNode(int x, int y, shared_ptr<Node> Goal, shared_ptr<Node> Pre
 
 }
 
-void ASTAR::UpdateLine()
+void ASTAR::LineMaker(IMesh * CubeMesh)
 {
 	//Smooth Curve 
 	float P1x;
@@ -116,7 +116,7 @@ void ASTAR::UpdateLine()
 			}
 
 			//Models
-			Curve[kCurveCounter] = CircleMesh->CreateModel(CubeSize * X * scale, 1.0f, CubeSize * Y  * scale);
+			Curve[kCurveCounter] = CubeMesh->CreateModel(CubeSize * X * scale, 1.0f, CubeSize * Y  * scale);
 			Curve[kCurveCounter]->SetSkin("circle2.jpg");
 			//Curve[kCurveCounter]->Scale(0.1f);
 			kCurveCounter++;
@@ -127,7 +127,7 @@ void ASTAR::UpdateLine()
 	}
 }
 
-void ASTAR::reconstructpath(shared_ptr<Node> current, shared_ptr<Node> Start)
+void ASTAR::reconstructpath(shared_ptr<Node> current, shared_ptr<Node> Start, IMesh * CubeMesh)
 {
 
 	while (current->x != Start->x || current->y != Start->y)
@@ -146,20 +146,18 @@ void ASTAR::reconstructpath(shared_ptr<Node> current, shared_ptr<Node> Start)
 	FinalPath.insert(FinalPath.begin(), Start);
 
 	//make line
-	UpdateLine();
+	LineMaker(CubeMesh);
 
 
 }
 
 //F(n) = G(n) + H(n)
-bool ASTAR::AStar(shared_ptr<Node> Start, shared_ptr<Node> Goal)
+bool ASTAR::AStar(shared_ptr<Node> Start, shared_ptr<Node> Goal, int CurrentMap[gMapWidth][gMapHeight], IMesh * CircleMesh)
 {
-	auto oldpath = FinalPath;
-	DeleteEverything();//clear out old route if one exists
-	
-	OpenList = { Start }; //create new route
+	int SortCount = 0;
+	OpenList = { Start };
 	shared_ptr<Node> Current(new Node); //Smart Pointer
-	
+
 	while (!OpenList.empty())
 	{
 		//Set Current
@@ -181,96 +179,20 @@ bool ASTAR::AStar(shared_ptr<Node> Start, shared_ptr<Node> Goal)
 									  //Check if we've reached the Goal
 		if (Current->x == Goal->x && Current->y == Goal->y)
 		{
-			reconstructpath(Current, Start);
+			reconstructpath(Current, Start, CircleMesh);
 			return true; //Successsss
 		}
 
 		//Checks North, East, South, West for new nodes
-		if (Current->y < (gMapHeight - 1)) CreateNode(Current->x, Current->y + 1, Goal, Current);	 //(North) node, 
-		if (Current->x < (gMapWidth - 1)) CreateNode(Current->x + 1, Current->y, Goal, Current);	 //(East) node, 
-		if (Current->y > 0) CreateNode(Current->x, Current->y - 1, Goal, Current);	 //(South) node, 
-		if (Current->x > 0) CreateNode(Current->x - 1, Current->y, Goal, Current);	 //(West) node, 
+		if (Current->y < (gMapHeight - 1)) CreateNode(Current->x, Current->y + 1, Goal, Current, CurrentMap, CircleMesh);	 //(North) node, 
+		if (Current->x < (gMapWidth - 1)) CreateNode(Current->x + 1, Current->y, Goal, Current, CurrentMap, CircleMesh);	 //(East) node, 
+		if (Current->y > 0) CreateNode(Current->x, Current->y - 1, Goal, Current, CurrentMap, CircleMesh);	 //(South) node, 
+		if (Current->x > 0) CreateNode(Current->x - 1, Current->y, Goal, Current, CurrentMap, CircleMesh);	 //(West) node, 
 
 	}
 
-	FinalPath = oldpath;
-	//reconstructpath(Current, Start, CircleMesh);
-	UpdateLine();
 	cout << "No Path Found :(" << endl;
 	return false; // if no path found
-}
-
-//bool ASTAR::LocateNewPath(shared_ptr<Node> Start, shared_ptr<Node> Goal, int CurrentMap[gMapWidth][gMapHeight], IMesh * CircleMesh)
-//{
-//	// the old path gets stored in temp and erased.
-//	// temp gets broken into head and tail, tail starts at  the start of the old path and head ends at goal. 
-//	// we cut the head at the point the tower is placed "start", and recalcualte the new head.
-//	// we reattach the new head to the old tail.
-//
-//	//store old path
-//	auto temp = FinalPath;
-//
-//	// calculate new head which is stored in (FinalPath)
-//	if (AStar(Start, Goal, CurrentMap, CircleMesh))
-//	{
-//		//remove the head (point after the placement)
-//		while (temp.back()->x != Start->x || temp.back()->y != Start->y)
-//		{
-//			temp.pop_back();
-//		}
-//		temp.pop_back();
-//		//reattach the tail to the new head.
-//		//this is a problem because can only push to the back so
-//		//we push the head onto the tail then swap the memory locations
-//
-//		while (!FinalPath.empty()) //
-//		{
-//			temp.push_back(FinalPath.front());  // tail: [ 0, 1, 2 ] head: [ 3, 4, 5 ] -> tail: [ 0, 1, 2, 3 ] head: [ 3 , 4, 5 ]
-//			FinalPath.erase(FinalPath.begin()); // tail: [ 0, 1, 2, 3 ] head: [ 3, 4, 5 ] -> tail: [ 0, 1, 2, 3 ] head: [ 4, 5 ]
-//		}
-//
-//		FinalPath = temp;
-//
-//		UpdateLine(CircleMesh); //draw the new line with the updated path :D
-//		return true;
-//	}
-//
-//	//if path could not be found redraw the old path
-//	else
-//	{
-//		FinalPath = temp;
-//		UpdateLine(CircleMesh);
-//		return false;
-//	}
-//
-//	return false;
-//}
-
-bool ASTAR::BuildTower(int currentX, int currentZ)
-{
-	CurrentMap[currentX][currentZ] = 0;	//set it to a wall
-
-	//check if the tower was placed on the current path
-	for (int i = 0; i < FinalPath.size(); i++)
-	{
-		if (FinalPath[i]->x == currentX && FinalPath[i]->y == currentZ)
-		{
-			//if it was check that it does not disrupt the path
-			if (AStar(FinalPath.front(), FinalPath.back()))
-			{
-				return true;
-			}
-
-			//if path is disrupted 
-			else
-			{
-				CurrentMap[currentX][currentZ] = 1; //change back to old tile
-				return false;
-			}
-		}
-	}
-
-	return true; //if tower is not built on path then i should be allowed
 }
 
 bool ASTAR::CheckPointReached(IModel* Player, IModel* CheckPoint, float Radius)
@@ -287,18 +209,20 @@ bool ASTAR::Patrol(IModel* Player, int &PatrolNum, float Timer)
 {
 	Player->LookAt(Curve[PatrolNum]);
 	Player->MoveLocalZ(kEnemySpeed * Timer);
-
-	//when end reached
-	if (PatrolNum >= kCurveCounter / 2)
+	int Test = kCurveCounter / 2;
+	if (PatrolNum >= Test)
 	{
 		return true;
 	}
 
-	//If Reached current checkpoint, look at next checkpoint
+	//If Reached look at next checkpoint
 	if (CheckPointReached(Player, Curve[PatrolNum], PathRadius))
 	{
 		PatrolNum = PatrolNum + 1;
 	}
+
+	//when end reached
+
 
 	return false;
 }
@@ -307,16 +231,13 @@ bool ASTAR::Patrol(IModel* Player, int &PatrolNum, float Timer)
 // D E L E T E //
 /////////////////
 
-void ASTAR::DeletePath()
+void ASTAR::DeletePath(IMesh * SphereMesh)
 {
 	//Remove Tiles
 	int i = 0;
 	while (i < kCurveCounter)
 	{
-		if (CircleMesh != NULL)
-		{
-			CircleMesh->RemoveModel(Curve[i]);
-		}
+		SphereMesh->RemoveModel(Curve[i]);
 		i++;
 	}
 }
@@ -338,10 +259,8 @@ void ASTAR::DeleteList()
 	}
 }
 
-void ASTAR::DeleteEverything()
+void ASTAR::DeleteEverything(IMesh * SphereMesh)
 {
-	
-	DeletePath();
-	kCurveCounter = 0;
+	DeletePath(SphereMesh);
 	DeleteList();
 }

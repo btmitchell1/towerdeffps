@@ -8,7 +8,6 @@
 #include <random>
 #include <deque>
 #include "_GameControls.h"
-
 using namespace tle;
 
 //const float PlayerSpeed = 100.0f;
@@ -51,24 +50,16 @@ public:
 	vector <shared_ptr<Node> > CloseList;
 	vector <shared_ptr<Node> >  FinalPath;
 
-	IMesh * CircleMesh;
-
 	float Bezier(float P1, float P2, float P3, float P4, float t);
 	bool CheckCloseList(shared_ptr<Node> Current);
-	void CreateNode(int x, int y, shared_ptr<Node> Goal, shared_ptr<Node> Previous);
-	void UpdateLine();
-	void reconstructpath(shared_ptr<Node> current, shared_ptr<Node> Start);
-	bool AStar(shared_ptr<Node> Start, shared_ptr<Node> Goal);
-	bool BuildTower(int currentX, int currentZ);
+	void CreateNode(int x, int y, shared_ptr<Node> Goal, shared_ptr<Node> Previous, int Map[gMapWidth][gMapHeight], IMesh * CubeMesh);
+	void LineMaker(IMesh * CubeMesh);
+	void reconstructpath(shared_ptr<Node> current, shared_ptr<Node> Start, IMesh * CubeMesh);
+	bool AStar(shared_ptr<Node> Start, shared_ptr<Node> Goal, int CurrentMap[gMapWidth][gMapHeight], IMesh * CircleMesh);
 	bool CheckPointReached(IModel* Player, IModel* CheckPoint, float Radius);
 	bool Patrol(IModel * Player, int & PatrolNum, float Timer);
-	void DeletePath();
+	void DeletePath(IMesh * SphereMesh);
 	void DeleteList();
-	void DeleteEverything();
+	void DeleteEverything(IMesh * SphereMesh);
 
-	//bool AStar(shared_ptr<Node> Start, shared_ptr<Node> Goal, IMesh * CircleMesh);
-
-	//bool LocateNewPath(shared_ptr<Node> Start, shared_ptr<Node> Goal, int CurrentMap[gMapWidth][gMapHeight], IMesh * CircleMesh);
-	//bool BuildTower(shared_ptr<Node> Start, shared_ptr<Node> Goal, IMesh * CircleMesh, int currentX, int currentZ);
-	//void CheckRoute();
 };
