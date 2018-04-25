@@ -7,6 +7,8 @@
 #include <vector>
 #include <memory>
 
+#include <Audio.hpp>
+
 using namespace std;
 using namespace tle;
 
@@ -14,6 +16,16 @@ const enum gameType { StartGame, TopDown, Fps, Paused, End };
 const enum Types { Wall, Clear, Wood, Water };
 const enum EBuildingType { none, tower1, tower2, wall };
 const enum ETowerState { null, building, built };
+
+
+struct Sound
+{
+	sf::SoundBuffer buffer;
+	sf::Sound sound;
+	string soundName;
+	sf::Vector3f soundPos;
+	sf::Vector3f soundVelocity;
+};
 
 struct Node
 {
