@@ -1,11 +1,2 @@
-﻿  _GameControls.cpp
-c:\users\daniel\documents\github\towerdeffps\towerdefencefps\_gamecontrols.h(10): fatal error C1083: Cannot open include file: 'Audio.hpp': No such file or directory
-  TowerDefenceFPS.cpp
-c:\users\daniel\documents\github\towerdeffps\towerdefencefps\_gamecontrols.h(10): fatal error C1083: Cannot open include file: 'Audio.hpp': No such file or directory
-  Top Down Controls.cpp
-c:\users\daniel\documents\github\towerdeffps\towerdefencefps\_gamecontrols.h(10): fatal error C1083: Cannot open include file: 'Audio.hpp': No such file or directory
-  FPS.cpp
-c:\users\daniel\documents\github\towerdeffps\towerdefencefps\_gamecontrols.h(10): fatal error C1083: Cannot open include file: 'Audio.hpp': No such file or directory
-  AstarFun.cpp
-c:\users\daniel\documents\github\towerdeffps\towerdefencefps\_gamecontrols.h(10): fatal error C1083: Cannot open include file: 'Audio.hpp': No such file or directory
-  Generating Code...
+﻿  TowerDefenceFPS.vcxproj -> C:\Users\dmacarthur\Desktop\final\TowerDefenceFPS\\TowerDefenceFPSDebug.exe
+  TowerDefenceFPS.vcxproj -> C:\Users\dmacarthur\Desktop\final\TowerDefenceFPS\\TowerDefenceFPS.pdb (Full PDB)

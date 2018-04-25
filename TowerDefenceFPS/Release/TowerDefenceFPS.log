@@ -1,0 +1,225 @@
+﻿TL-Engine2017Debug.lib(TL-Engine.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(TL-Engine.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(TL-Engine.obj) : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:ICF' specification
+TL-Engine2017Debug.lib(MSDefines.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(MSDefines.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(TLXEngine.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(TLXEngine.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(IrrlichtEngine.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(IrrlichtEngine.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CFatalException.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CFatalException.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CMSWindow.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CMSWindow.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CMSTimer.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CMSTimer.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CInputReceiver.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CInputReceiver.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(Surface.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(Surface.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CMatrix4x4.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CMatrix4x4.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CWindowReceiver.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CWindowReceiver.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(TLX-Render.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(TLX-Render.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(TLX-Engine.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(TLX-Engine.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(TLXCamera.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(TLXCamera.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(TLXLight.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(TLXLight.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(TLXMesh.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(TLXMesh.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(TLXFont.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(TLXFont.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(TLXSprite.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(TLXSprite.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(Errors.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(Errors.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(IrrlichtInput.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(IrrlichtInput.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(IrrlichtCamera.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(IrrlichtCamera.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(IrrlichtLight.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(IrrlichtLight.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(IrrlichtMesh.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(IrrlichtMesh.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(IrrlichtFont.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(IrrlichtFont.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(Utility.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(Utility.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CVector3.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CVector3.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CRenderDeviceDX.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CRenderDeviceDX.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CSceneManager.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CSceneManager.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(TLXSceneNode.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(TLXSceneNode.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(TLXModel.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(TLXModel.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(IrrlichtSceneNode.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(IrrlichtSceneNode.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(IrrlichtModel.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(IrrlichtModel.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(Log.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(Log.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CRenderDevice.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CRenderDevice.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(DXUtility.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(DXUtility.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CBufferManagerDX.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CBufferManagerDX.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CTextureManagerDX.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CTextureManagerDX.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CRenderManagerDX.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CRenderManagerDX.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CMeshManagerDX.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CMeshManagerDX.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CInstance.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CInstance.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CCamera.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CCamera.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CPositionMatrix.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CPositionMatrix.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(TLXModelNode.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(TLXModelNode.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(LogStream.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(LogStream.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CResourceManager.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CResourceManager.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(MeshData.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(MeshData.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CBufferManager.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CBufferManager.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CVertexBufferDX.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CVertexBufferDX.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CIndexBufferDX.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CIndexBufferDX.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CTextureManager.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CTextureManager.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CTextureSurfaceDX.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CTextureSurfaceDX.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CFontDX.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CFontDX.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CSpriteDX.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CSpriteDX.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CRenderManager.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CRenderManager.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CGenericProcessDX.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CGenericProcessDX.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CMeshManager.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CMeshManager.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CImportXFile.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CImportXFile.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CPositionNode.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CPositionNode.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CRenderBucket.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CRenderBucket.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CBuffer.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CBuffer.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CTexture.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CTexture.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CTextureSurface.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CTextureSurface.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(BaseMath.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(BaseMath.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CHashTable.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CHashTable.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(Render.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(Render.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(CMesh.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(CMesh.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(Mesh.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(Mesh.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(NvTriStrip.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(NvTriStrip.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+TL-Engine2017Debug.lib(NvTriStripObjects.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+TL-Engine2017Debug.lib(NvTriStripObjects.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+libcpmtd.lib(stdthrow.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '2' doesn't match value '0' in AstarFun.obj
+libcpmtd.lib(stdthrow.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MTd_StaticDebug' doesn't match value 'MT_StaticRelease' in AstarFun.obj
+LINK : warning LNK4098: defaultlib 'LIBCMTD' conflicts with use of other libs; use /NODEFAULTLIB:library
+TL-Engine2017Debug.lib(NvTriStripObjects.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+libcpmtd.lib(stdthrow.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(Render.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CMesh.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(Mesh.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(NvTriStrip.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CTexture.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CTextureSurface.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(BaseMath.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CHashTable.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CImportXFile.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CPositionNode.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CRenderBucket.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CBuffer.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CSpriteDX.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CRenderManager.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CGenericProcessDX.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CMeshManager.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CIndexBufferDX.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CTextureManager.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CTextureSurfaceDX.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CFontDX.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CResourceManager.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(MeshData.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CBufferManager.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CVertexBufferDX.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CCamera.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CPositionMatrix.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(TLXModelNode.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(LogStream.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CTextureManagerDX.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CRenderManagerDX.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CMeshManagerDX.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CInstance.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(Log.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CRenderDevice.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(DXUtility.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CBufferManagerDX.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(TLXSceneNode.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(TLXModel.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(IrrlichtSceneNode.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(IrrlichtModel.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(Utility.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CVector3.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CRenderDeviceDX.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CSceneManager.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(IrrlichtCamera.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(IrrlichtLight.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(IrrlichtMesh.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(IrrlichtFont.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(TLXFont.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(TLXSprite.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(Errors.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(IrrlichtInput.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(TLX-Engine.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(TLXCamera.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(TLXLight.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(TLXMesh.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(Surface.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CMatrix4x4.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CWindowReceiver.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(TLX-Render.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CFatalException.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CMSWindow.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CMSTimer.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CInputReceiver.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(TL-Engine.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(MSDefines.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(TLXEngine.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(IrrlichtEngine.obj) : error LNK2001: unresolved external symbol __CrtDbgReportW
+TL-Engine2017Debug.lib(CFatalException.obj) : error LNK2001: unresolved external symbol __calloc_dbg
+TL-Engine2017Debug.lib(CRenderDevice.obj) : error LNK2001: unresolved external symbol __calloc_dbg
+TL-Engine2017Debug.lib(CMesh.obj) : error LNK2001: unresolved external symbol __free_dbg
+TL-Engine2017Debug.lib(CFatalException.obj) : error LNK2001: unresolved external symbol __free_dbg
+TL-Engine2017Debug.lib(Log.obj) : error LNK2001: unresolved external symbol __free_dbg
+TL-Engine2017Debug.lib(CRenderDevice.obj) : error LNK2001: unresolved external symbol __free_dbg
+TL-Engine2017Debug.lib(CMeshManager.obj) : error LNK2001: unresolved external symbol __free_dbg
+TL-Engine2017Debug.lib(CMesh.obj) : error LNK2001: unresolved external symbol __malloc_dbg
+TL-Engine2017Debug.lib(CFatalException.obj) : error LNK2001: unresolved external symbol __malloc_dbg
+TL-Engine2017Debug.lib(Log.obj) : error LNK2001: unresolved external symbol __malloc_dbg
+TL-Engine2017Debug.lib(CRenderDevice.obj) : error LNK2001: unresolved external symbol __malloc_dbg
+TL-Engine2017Debug.lib(CMeshManager.obj) : error LNK2001: unresolved external symbol __malloc_dbg
+C:\Users\dmacarthur\Desktop\final\TowerDefenceFPS\TowerDefenceFPS.exe : fatal error LNK1120: 4 unresolved externals

@@ -37,7 +37,7 @@ sf::Vector3f listenerUp(0.0, 1.0, 0.0);
 
 void main()
 {
-	const int kNumSounds = 7;
+	const int kNumSounds = 6;
 	Sound sounds[kNumSounds];
 
 	sounds[0].soundName = "musicloop.wav";
@@ -46,7 +46,7 @@ void main()
 	sounds[3].soundName = "upgrade.wav";
 	sounds[4].soundName = "sell.wav";
 	sounds[5].soundName = "footstep.wav";
-	sounds[6].soundName = "enemymove.wav";
+	//sounds[6].soundName = "enemymove.wav";
 
 	for (int i = 0; i < kNumSounds; ++i)
 	{
