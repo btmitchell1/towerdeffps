@@ -124,7 +124,7 @@ void CBuilding::AnimBuy(float frameTime)
 }
 
 // Methods
-bool Found(CBuilding* array[kSizeX][kSizeZ], int x, int z);
+bool Found(CBuilding* array[gMapWidth][gMapHeight], int x, int z);
 
 bool SphereSphereCD(float sphere1X, float sphere1Z, float sphere1Radius,
 	float sphere2X, float sphere2Z, float sphere2Radius);

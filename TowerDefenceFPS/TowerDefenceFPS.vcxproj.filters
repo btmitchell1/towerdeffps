@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Project">
-      <UniqueIdentifier>{f836ff60-0695-4e18-b323-881e1f66feb4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Headers">
       <UniqueIdentifier>{d10925e7-b9dc-43c8-9921-162733923318}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header definitions">
       <UniqueIdentifier>{d974bee4-3736-49ad-8dbe-3c869a56a224}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Project">
+      <UniqueIdentifier>{f836ff60-0695-4e18-b323-881e1f66feb4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
