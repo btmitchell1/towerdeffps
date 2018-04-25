@@ -65,10 +65,4 @@ public:
 	void DeletePath();
 	void DeleteList();
 	void DeleteEverything();
-
-	//bool AStar(shared_ptr<Node> Start, shared_ptr<Node> Goal, IMesh * CircleMesh);
-
-	//bool LocateNewPath(shared_ptr<Node> Start, shared_ptr<Node> Goal, int CurrentMap[gMapWidth][gMapHeight], IMesh * CircleMesh);
-	//bool BuildTower(shared_ptr<Node> Start, shared_ptr<Node> Goal, IMesh * CircleMesh, int currentX, int currentZ);
-	//void CheckRoute();
 };

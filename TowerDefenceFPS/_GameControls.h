@@ -88,6 +88,7 @@ const float kEnemyRadius = 1.0f;
 //Map Size
 const int gMapWidth = 10;
 const int gMapHeight = 10;
+const float kBorderBuffer = 1.5f;
 
 bool GetMap(int MapArray[gMapWidth][gMapHeight], string MapFile, shared_ptr<Node> Start, shared_ptr<Node> Goal);
 void DisplayMap(int a[gMapWidth][gMapHeight]);

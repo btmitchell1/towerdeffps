@@ -29,7 +29,7 @@ const int kMouseBoundaryY = 360;
 
 
 // BALANCE CONSTANTS //
-const int kStartingBalance = 50000;
+const int kStartingBalance = 500;
 
 // Towers
 // Level 1
@@ -76,12 +76,18 @@ public:
 	void UpgradeBuilding(IMesh*, float, float);
 	void SellBuilding(IMesh*);
 
+	//getters
 	IModel* GetModel();
 	IModel* GetDummy();
 	EBuildingType GetType();
 	float GetX();
 	float GetZ();
 	ETowerState GetState();
+
+
+	//setters
+	void SetType(EBuildingType Type) { mType = Type; };
+	void SetModel(IModel* Model) { mModel = Model; };
 
 	void PlaySound();
 

@@ -8,6 +8,8 @@
 
 using namespace tle;
 I3DEngine* myEngine = New3DEngine(kTLX);
+enum ECollision { colNone, xAxis, zAxis };
+
 
 //Globals
 const float gameSpeed = 20;
@@ -25,6 +27,7 @@ void SetCameraFPS(ICamera * myCamera, IModel* fpsDummy);
 void SetCameraTopDown(ICamera * myCamera);
 bool Found(CBuilding* array[gMapWidth][gMapHeight], int x, int z);
 bool SphereSphereCD(float sphere1X, float sphere1Z, float sphere1Radius, float sphere2X, float sphere2Z, float sphere2Radius);
+ECollision SphereBoxCD(float sphereOldX, float sphereOldZ, float sphereX, float sphereZ, float sphereRadius, float boxX, float boxZ, float halfBoxLength, float halfBoxWidth);
 float MAX(float a, float b);
 void BorderCollision(IModel* fpsDummy, float oldX, float oldZ);
 void CreateTower(CBuilding * BuildingArray[gMapWidth][gMapHeight], IMesh * DummyMesh, IMesh * AmmoMesh, int currentX, int currentZ, EBuildingType Type, IMesh * TowerMesh, int Cost);
@@ -108,6 +111,13 @@ void main()
 	///////////////
 	// S T A R T //
 	///////////////
+
+	ISprite* Background = myEngine->CreateSprite("BlackBackground.png", 0.0f, 0.0f, 0.01f);
+	Background->SetPosition(0.0f, 0.0f);
+
+	ISprite* StartScreen = myEngine->CreateSprite("StartScreen.png", 0.0f, 0.0f, 0.0f);
+	StartScreen->SetPosition((myEngine->GetWidth() - 1024) / 2, (myEngine->GetHeight() - 768) / 2);
+
 	ISprite * StartButton = myEngine->CreateSprite("start Button.png", 0.0f, 0.0f, 0.0f);
 	StartButton->SetPosition(myEngine->GetWidth() - 125, myEngine->GetHeight() - 50);
 
@@ -123,6 +133,7 @@ void main()
 	IModel* skyBox = SkyMesh->CreateModel(0.0f, -1000.0f, 0.0f);
 	IMesh* GroundMesh = myEngine->LoadMesh("ground.x");
 	IModel* ground = GroundMesh->CreateModel(0.0f, -0.1f, 0.0f);
+	IMesh* fenceMesh = myEngine->LoadMesh("ChainLinkFence.x");
 
 	//Variables	
 	float frameTime = myEngine->Timer(); // frame time
@@ -143,7 +154,10 @@ void main()
 
 	shared_ptr<Node> Start(new Node); 
 	shared_ptr<Node> Goal(new Node);
+
 	IModel * ModelArray[gMapWidth][gMapHeight]; //Array of all the cubes
+	IModel * BorderArray[((gMapWidth + gMapHeight) * 2) + 4];
+	IModel * FenceArray[((gMapWidth + gMapHeight) * 2) + 8];
 
 	//Get Map
 	string UserInputMap = "m"; // Name of map
@@ -187,6 +201,70 @@ void main()
 		}
 	}
 
+	/////////////////
+	// B O R D E R // Jons Code
+	/////////////////
+
+	//Create border around grid
+	for (int i = 0; i < gMapHeight; i++)
+	{
+		BorderArray[i * 2] = CubeMesh->CreateModel(scale *  CubeSize * gMapWidth, -scale * 4.5, scale * CubeSize * i);
+		BorderArray[(i * 2) + 1] = CubeMesh->CreateModel(scale * -CubeSize, -scale * 4.5, scale * CubeSize * i);
+
+
+		FenceArray[i * 2] = fenceMesh->CreateModel(scale *  (CubeSize + 0.5f) * gMapWidth, 0.0f, scale * CubeSize * i);
+		FenceArray[i * 2]->RotateY(270);
+		FenceArray[(i * 2) + 1] = fenceMesh->CreateModel(scale * -(CubeSize * 1.5f), 0.0f, scale * CubeSize * i);
+		FenceArray[(i * 2) + 1]->RotateY(90);
+	}
+
+	for (int i = 0; i < gMapWidth; i++)
+	{
+		BorderArray[(i + gMapHeight) * 2] = CubeMesh->CreateModel(scale * CubeSize * i, -scale * 4.5, scale *  CubeSize * gMapHeight);
+		BorderArray[((i + gMapHeight) * 2) + 1] = CubeMesh->CreateModel(scale * CubeSize * i, -scale * 4.5, scale * -CubeSize);
+
+
+		FenceArray[(i + gMapHeight) * 2] = fenceMesh->CreateModel(scale * CubeSize * i, 0.0f, scale *  (CubeSize + 0.5f) * gMapHeight);
+		FenceArray[(i + gMapHeight) * 2]->RotateY(180);
+		FenceArray[((i + gMapHeight) * 2) + 1] = fenceMesh->CreateModel(scale * CubeSize * i, 0.0f, scale * -(CubeSize * 1.5f));
+	}
+
+	BorderArray[(gMapHeight + gMapWidth) * 2] = CubeMesh->CreateModel(scale * -CubeSize, -scale * 4.5, scale * -CubeSize);
+	BorderArray[(gMapHeight + gMapWidth) * 2 + 1] = CubeMesh->CreateModel(scale *  CubeSize * gMapWidth, -scale * 4.5, scale * -CubeSize);
+	BorderArray[(gMapHeight + gMapWidth) * 2 + 2] = CubeMesh->CreateModel(scale * -CubeSize, -scale * 4.5, scale *  CubeSize * gMapHeight);
+	BorderArray[(gMapHeight + gMapWidth) * 2 + 3] = CubeMesh->CreateModel(scale *  CubeSize * gMapWidth, -scale * 4.5, scale *  CubeSize * gMapHeight);
+
+	FenceArray[(gMapHeight + gMapWidth) * 2] = fenceMesh->CreateModel(scale * -CubeSize, 0.0f, scale * -(CubeSize * 1.5f));
+	FenceArray[(gMapHeight + gMapWidth) * 2 + 1] = fenceMesh->CreateModel(scale * CubeSize * gMapWidth, 0.0f, scale * -(CubeSize * 1.5f));
+	FenceArray[(gMapHeight + gMapWidth) * 2 + 2] = fenceMesh->CreateModel(scale * -CubeSize, 0.0f, scale *  (CubeSize + 0.5f) * gMapHeight);
+	FenceArray[(gMapHeight + gMapWidth) * 2 + 2]->RotateY(180);
+	FenceArray[(gMapHeight + gMapWidth) * 2 + 3] = fenceMesh->CreateModel(scale * CubeSize * gMapWidth, 0.0f, scale *  (CubeSize + 0.5f) * gMapHeight);
+	FenceArray[(gMapHeight + gMapWidth) * 2 + 3]->RotateY(180);
+
+	FenceArray[(gMapHeight + gMapWidth) * 2 + 4] = fenceMesh->CreateModel(scale * -(CubeSize * 1.5f), 0.0f, scale * -CubeSize);
+	FenceArray[(gMapHeight + gMapWidth) * 2 + 4]->RotateY(90);
+	FenceArray[(gMapHeight + gMapWidth) * 2 + 5] = fenceMesh->CreateModel(scale * -(CubeSize * 1.5f), 0.0f, scale * CubeSize * gMapHeight);
+	FenceArray[(gMapHeight + gMapWidth) * 2 + 5]->RotateY(90);
+	FenceArray[(gMapHeight + gMapWidth) * 2 + 6] = fenceMesh->CreateModel(scale *  (CubeSize + 0.5f) * gMapHeight, 0.0f, scale * -CubeSize);
+	FenceArray[(gMapHeight + gMapWidth) * 2 + 6]->RotateY(270);
+	FenceArray[(gMapHeight + gMapWidth) * 2 + 7] = fenceMesh->CreateModel(scale *  (CubeSize + 0.5f) * gMapHeight, 0.0f, scale * CubeSize * gMapWidth);
+	FenceArray[(gMapHeight + gMapWidth) * 2 + 7]->RotateY(270);
+
+
+	for (int i = 0; i < ((gMapWidth + gMapHeight) * 2) + 4; i++)
+	{
+		BorderArray[i]->SetSkin("stein.jpg");
+		BorderArray[i]->Scale(scale);
+	}
+
+
+	for (int i = 0; i < ((gMapWidth + gMapHeight) * 2) + 8; i++)
+	{
+		FenceArray[i]->Scale(scale * 3.8);
+	}
+
+
+
 	////////////////////////////////
 	// T O W E R  B U I L D I N G // Ben's Code
 	////////////////////////////////
@@ -198,6 +276,7 @@ void main()
 
 	CBuilding* BuildingArray[gMapWidth][gMapHeight];
 
+
 	// Used to check iff building exists already or not
 	for (int x = 0; x < gMapWidth; ++x)
 	{
@@ -207,6 +286,8 @@ void main()
 		}
 	}
 
+	BuildingArray[0][0]->SetType(wall); //cheat
+	BuildingArray[0][0]->SetModel(StartModel);
 
 	int currentX = 0;
 	int currentZ = 0;
@@ -230,7 +311,8 @@ void main()
 	IMesh* gunMesh = myEngine->LoadMesh("autofrag.x");
 
 	IModel* fpsDummy = DummyMesh->CreateModel(kFpsStartCoords[0], kFpsStartCoords[1], kFpsStartCoords[2]);
-	IModel* gunModel = gunMesh->CreateModel(0.3f, -0.2f, 0.5f);
+	IModel* gunModel = gunMesh->CreateModel(1.8f, -0.8f, 3.0f);
+	gunModel->Scale(scale);
 	IModel* gunDummy = DummyMesh->CreateModel(kFpsStartCoords[0], kFpsStartCoords[1], kFpsStartCoords[2]);
 
 	IMesh* laserMesh = myEngine->LoadMesh("Projectile3.x");
@@ -241,8 +323,15 @@ void main()
 	}
 	int laserCounter = 0;
 
+	IMesh* CircleMesh = myEngine->LoadMesh("circle.x");
 
-
+	IModel* sparks[8];
+	for (int i = 0; i < 8; i++)
+	{
+		sparks[i] = CircleMesh->CreateModel(0, -100, 0);
+		sparks[i]->SetSkin("laser2.jpg");
+		sparks[i]->Scale(0.02);
+	}
 
 	///////////////////
 	// E N E M I E S //
@@ -340,8 +429,30 @@ void main()
 
 					footStepTimer = 0.0f;
 				}
-
 				moved = false;
+
+				ECollision col = colNone;
+				for (int x = 0; x < gMapWidth; ++x)
+				{
+					for (int z = 0; z < gMapHeight; ++z)
+					{
+						if (Found(BuildingArray, x, z))
+						{
+							col = SphereBoxCD(oldX, oldZ, fpsDummy->GetX(), fpsDummy->GetZ(), 4.0f, BuildingArray[x][z]->GetModel()->GetX(), BuildingArray[x][z]->GetModel()->GetZ(), 5.0f * scale, 5.0f * scale);
+							if (col == xAxis)
+							{
+								fpsDummy->SetX(oldX);
+
+							}
+							else if (col == zAxis)
+							{
+								fpsDummy->SetZ(oldZ);
+
+							}
+						}
+					}
+				}
+
 			}
 
 
@@ -376,15 +487,27 @@ void main()
 			{
 				if (laserCounter < kClipSize)
 				{
-					laser[laserCounter]->SetPosition(gunDummy->GetX(), gunDummy->GetY(), gunDummy->GetZ());
-					laser[laserCounter]->LookAt(myCamera);
-					laser[laserCounter]->RotateLocalY(180);
-					laser[laserCounter]->MoveLocalY(-5);
-					laser[laserCounter]->MoveLocalX(9);
+
+
+					laser[laserCounter]->SetPosition(gunModel->GetX(), gunModel->GetY(), gunModel->GetZ());
+					laser[laserCounter]->LookAt(gunDummy);
+
+					laser[laserCounter]->MoveLocalZ(3.0f);
+
+					for (int i = 0; i < 8; i++)
+					{
+						sparks[i]->SetPosition(gunModel->GetX(), gunModel->GetY(), gunModel->GetZ());
+						sparks[i]->LookAt(gunDummy);
+						sparks[i]->RotateLocalX(-90);
+						sparks[i]->MoveLocalY(-3.0f);
+						sparks[i]->RotateLocalY(rand());
+						sparks[i]->Scale(0.02);
+					}
+
+
 
 					canFire = false;
 					laserCounter++;
-
 					sounds[1].sound.play();
 				}
 			}
@@ -404,8 +527,9 @@ void main()
 				}
 			}
 
-			myFont->Draw("Ammo: " + to_string(kClipSize - laserCounter), myEngine->GetWidth() - 150, myEngine->GetHeight() - 50);
 
+//ammo
+			myFont->Draw("Ammo: " + to_string(kClipSize - laserCounter), myEngine->GetWidth() - 150, myEngine->GetHeight() - 50);
 			//checks clip size
 			for (int i = 0; i < kClipSize; i++)
 			{
@@ -446,6 +570,31 @@ void main()
 
 			}
 
+			//sparks effect
+			float xDistance;
+			float yDistance;
+			float zDistance;
+			float distance;
+			for (int i = 0; i < 8; i++)
+			{
+				xDistance = sparks[i]->GetX() - gunDummy->GetX();
+				yDistance = sparks[i]->GetY() - gunDummy->GetY();
+				zDistance = sparks[i]->GetZ() - gunDummy->GetZ();
+				distance = sqrt(
+					(xDistance * xDistance) +
+					(yDistance * yDistance) +
+					(zDistance * zDistance));
+
+				if (distance < 3.5f)
+				{
+					sparks[i]->MoveLocalX(kProjectileSpeed * gameSpeed * frameTime);
+				}
+				else
+				{
+					sparks[i]->SetY(-100.0f);
+				}
+
+			}
 
 			///////////////////
 			// TOWER ATTACKS //
@@ -455,9 +604,8 @@ void main()
 			for (int x = 0; x < gMapWidth; ++x)
 			{
 				for (int z = 0; z < gMapHeight; ++z)
-
 				{
-					if (BuildingArray[x][z] != NULL)
+					if (Found(BuildingArray, x, z))
 					{
 						BuildingArray[x][z]->Attack(enemyList, frameTime);
 					}
@@ -472,13 +620,8 @@ void main()
 		else if (Mode == TopDown)
 		{
 
-			////////////////////////////
-			// P A T H  F I N D I N G // Dans Code
-			////////////////////////////
-			
-
 			//////////////////////////////////
-			// T O W E R  P L A C E M E N T // Bens Code
+			// T O W E R  P L A C E M E N T // Ben & Dans Code
 			//////////////////////////////////
 
 			stringstream outText;
@@ -685,6 +828,8 @@ void main()
 						CurrentTileModel->MoveY(-kHideY);
 						SMenuSprite->SetZ(-1);
 						gunModel->MoveY(kHideY);
+
+						myEngine->StartMouseCapture();
 					}
 
 					else if (Mode == Fps)
@@ -699,6 +844,8 @@ void main()
 						//reload
 						laserCounter = 0;
 						gunModel->MoveY(-kHideY);
+
+						myEngine->StopMouseCapture();
 					}
 
 					else if (Mode == StartGame)
@@ -728,8 +875,9 @@ void main()
 				if (myEngine->KeyHeld(Mouse_LButton))
 				{
 					SetCameraTopDown(myCamera);
-					StartButton->SetPosition(-1000, -1000);
 					delete(StartButton);
+					delete(Background);
+					delete(StartScreen);
 					StartModel->ResetOrientation();
 					StartModel->SetPosition(-CubeSize * 2.0f, 0.0f, 0.0f);
 					Mode = TopDown;
@@ -938,5 +1086,37 @@ void CreateTower(CBuilding * BuildingArray[gMapWidth][gMapHeight], IMesh * Dummy
 			}
 
 		}
+	}
+}
+
+
+ECollision SphereBoxCD(float sphereCurrentX, float sphereCurrentZ,
+	float sphereNewX, float sphereNewZ, float sphereRadius,
+	float boxX, float boxZ, float halfBoxLength, float halfBoxWidth)
+{
+	/* BOUNDING BOX */
+	float boxMinX = boxX - halfBoxWidth - sphereRadius;
+	float boxMaxX = boxX + halfBoxWidth + sphereRadius;
+	float boxMinZ = boxZ - halfBoxLength - sphereRadius;
+	float boxMaxZ = boxZ + halfBoxLength + sphereRadius;
+
+	if (sphereNewX > boxMinX &&
+		sphereNewX < boxMaxX &&
+		sphereNewZ > boxMinZ &&
+		sphereNewZ < boxMaxZ
+		)
+	{
+		if (sphereCurrentX < boxMinX || sphereCurrentX > boxMaxX)
+		{
+			return ECollision::xAxis; // collision parallel to x axis
+		}
+		else
+		{
+			return ECollision::zAxis; // collision parallel to z axis
+		}
+	}
+	else
+	{
+		return ECollision::colNone;
 	}
 }
