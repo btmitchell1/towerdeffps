@@ -10,9 +10,10 @@ using namespace tle;
 I3DEngine* myEngine = New3DEngine(kTLX);
 
 //Globals
+enum ECollision { colNone, xAxis, zAxis };
 const float gameSpeed = 20;
 ASTAR Pathfind;
-bool DoOnce = true;
+CPlayer* player = new CPlayer(kStartingBalance);
 
 const float footStepTimePeriod = 0.5f;
 float footStepTimer = footStepTimePeriod;
@@ -23,21 +24,25 @@ bool moved = false;
 void Developer(ICamera * myCamera, IFont * myFont, IModel * GunDummy, float wheelMovement);
 void SetCameraFPS(ICamera * myCamera, IModel* fpsDummy);
 void SetCameraTopDown(ICamera * myCamera);
-bool Found(CBuilding* array[kSizeX][kSizeZ], int x, int z);
+bool Found(CBuilding* array[gMapWidth][gMapHeight], int x, int z);
 bool SphereSphereCD(float sphere1X, float sphere1Z, float sphere1Radius, float sphere2X, float sphere2Z, float sphere2Radius);
+ECollision SphereBoxCD(float sphereOldX, float sphereOldZ, float sphereX, float sphereZ, float sphereRadius, float boxX, float boxZ, float halfBoxLength, float halfBoxWidth);
 float MAX(float a, float b);
 void BorderCollision(IModel* fpsDummy, float oldX, float oldZ);
-
+void CreateTower(CBuilding * BuildingArray[gMapWidth][gMapHeight], IMesh * DummyMesh, IMesh * AmmoMesh, int currentX, int currentZ, EBuildingType Type, IMesh * TowerMesh, int Cost);
 
 sf::Vector3f listenerPos(0.0, 0.0, 0.0);
 sf::Vector3f listenerForward(0.0, 0.0, -1.0);
 sf::Vector3f listenerUp(0.0, 1.0, 0.0);
 
-
-
 void main()
 {
+<<<<<<< HEAD
+	const int kNumSounds = 6;
+=======
+<<<<<<< HEAD
 	const int kNumSounds = 7;
+>>>>>>> c53a9a59e7bd62a5efdc92746060d95f1a6573cc
 	Sound sounds[kNumSounds];
 
 	sounds[0].soundName = "musicloop.wav";
@@ -46,7 +51,7 @@ void main()
 	sounds[3].soundName = "upgrade.wav";
 	sounds[4].soundName = "sell.wav";
 	sounds[5].soundName = "footstep.wav";
-	sounds[6].soundName = "enemymove.wav";
+	//sounds[6].soundName = "enemymove.wav";
 
 	for (int i = 0; i < kNumSounds; ++i)
 	{
@@ -69,7 +74,6 @@ void main()
 	sounds[0].sound.play();
 
 	sounds[5].sound.setVolume(40.0f);
-
 	//****************
 	// Listener
 
@@ -86,13 +90,32 @@ void main()
 	//myEngine->StartFullscreen();
 	myEngine->StartWindowed(1600, 900);
 	const int kMenuPosX = myEngine->GetWidth() - 1600;
+=======
+	////////////////
+	// S E T U P //
+	//////////////
+
+	gameType Mode = StartGame;
+#ifdef _DEBUG
+	myEngine->StartWindowed();
+#endif // DEBUG
+
+#ifndef _DEBUG
+	myEngine->StartFullscreen(1600, 900);
+#endif // !DEBUG
+	
+	
+	
+	const int kMenuPosX = 0;
+>>>>>>> master
 	const int kMenuPosY = myEngine->GetHeight() - 120;
 
 	// Add default folder for meshes and other media
-	myEngine->AddMediaFolder("C:\\ProgramData\\TL-Engine\\Media");
-	myEngine->AddMediaFolder("media\\x");
-	myEngine->AddMediaFolder("media\\p");
-	myEngine->AddMediaFolder("media2\\");
+	myEngine->AddMediaFolder("C:\\ProgramData\\TL-Engine\\Media"); //default folder
+	myEngine->AddMediaFolder("media\\x"); //models
+	myEngine->AddMediaFolder("media\\p"); //images
+	myEngine->AddMediaFolder("media2\\");	//extra
+	IFont* myFont = myEngine->LoadFont("Arial", 30); //Font
 
 	///////////////
 	// S T A R T //
@@ -101,10 +124,8 @@ void main()
 	StartButton->SetPosition(myEngine->GetWidth() - 125, myEngine->GetHeight() - 50);
 
 	IMesh * MeshTest = myEngine->LoadMesh("Building07.x");
-	IModel * ModelTest = MeshTest->CreateModel(0.0f, -1000.0f, 100.0f);
+	IModel * StartModel = MeshTest->CreateModel(0.0f, -1000.0f, 100.0f);
 
-	//Font
-	IFont* myFont = myEngine->LoadFont("Arial", 30);
 
 	//Meshes
 	IMesh* CubeMesh = myEngine->LoadMesh("cube.x");
@@ -116,7 +137,8 @@ void main()
 	IModel* ground = GroundMesh->CreateModel(0.0f, -0.1f, 0.0f);
 
 	//Variables	
-	float frameTime = myEngine->Timer();
+	float frameTime = myEngine->Timer(); // frame time
+	bool built = false; //checks if a tower is fully built before swapping state
 
 	//////////
 	//Camera//
@@ -126,19 +148,20 @@ void main()
 	float cameraYRotation = 0.0f;
 	float cameraXRotation = 0.0f;
 
-
 	///////////////////////
 	// M A P & A S T A R // Dans Code
 	///////////////////////
-	//int CurrentMap[gMapWidth][gMapHeight]; //Array of all the Map Numbers
-	shared_ptr<Node> Start(new Node);
+
+	shared_ptr<Node> Start(new Node); 
 	shared_ptr<Node> Goal(new Node);
-	IModel * ModelArray[gMapWidth][gMapHeight];
+	IModel * ModelArray[gMapWidth][gMapHeight]; //Array of all the cubes
+
+	//Get Map
 	string UserInputMap = "m"; // Name of map
-	GetMap(Pathfind.CurrentMap, UserInputMap, Start, Goal); //Validation Loop
+	GetMap(Pathfind.CurrentMap, UserInputMap, Start, Goal); 
 	DisplayMap(Pathfind.CurrentMap);	//Display the loaded Map to console
 
-										//Create Player (start)
+	//Create Player
 	IModel *PlayerDummy = DummyMesh->CreateModel(CubeSize * Start->x, 16.0f, CubeSize * Start->y);
 
 	//Create Goal
@@ -148,6 +171,11 @@ void main()
 	//Start and Goal Validation
 	if (Pathfind.CurrentMap[Start->x][Start->y] == 0) cout << "the start goal is in a wall... Please adjust your Coords file " << endl;
 	else if (Pathfind.CurrentMap[Goal->x][Goal->y] == 0)	cout << "the end goal is in a wall and cannot be reached... Please Adjust your coords file " << endl;
+	Pathfind.CircleMesh = myEngine->LoadMesh("circle.x");
+
+	Pathfind.AStar(Start, Goal);
+	Pathfind.UpdateLine();
+
 
 	//Create grid of floor tiles
 	for (int i = 0; i < gMapWidth; i++)
@@ -170,9 +198,6 @@ void main()
 		}
 	}
 
-	//bool Checker = true;
-
-
 	////////////////////////////////
 	// T O W E R  B U I L D I N G // Ben's Code
 	////////////////////////////////
@@ -182,14 +207,15 @@ void main()
 	IMesh* Wall1Mesh = myEngine->LoadMesh("LargeGenericCrate.x");
 	IMesh* AmmoMesh = myEngine->LoadMesh("Projectile3.x");
 
-	CBuilding* BuildingArray[kSizeX][kSizeZ];
+	CBuilding* BuildingArray[gMapWidth][gMapHeight];
 
 	// Used to check iff building exists already or not
-	for (int x = 0; x < kSizeX; ++x)
+	for (int x = 0; x < gMapWidth; ++x)
 	{
-		for (int z = 0; z < kSizeZ; ++z)
+		for (int z = 0; z < gMapHeight; ++z)
 		{
 			BuildingArray[x][z] = new CBuilding;
+			cout << z;
 		}
 	}
 
@@ -206,7 +232,7 @@ void main()
 	ISprite* SMenuSprite = nullptr;
 	int menuSelection = 1;
 	int oldMenuSelection = menuSelection;
-	CPlayer* player = new CPlayer(kStartingBalance);
+	//CPlayer* player = new CPlayer(kStartingBalance);
 
 
 	///////////
@@ -227,7 +253,7 @@ void main()
 	}
 	int laserCounter = 0;
 
-	IMesh* CircleMesh = myEngine->LoadMesh("circle.x");
+
 
 
 	///////////////////
@@ -237,7 +263,28 @@ void main()
 	IMesh* ballMesh = myEngine->LoadMesh("cube.x");
 	vector <enemy> enemyList;
 
-	
+	//sf::Vector3f enemySoundPos(0.0, 0.0, 0.0);
+
+	//Sound enemySound;
+
+	//enemySound.soundPos = enemySoundPos;
+
+	//enemySound.soundName = "enemymove.wav";
+	//if (!enemySound.buffer.loadFromFile(enemySound.soundName))
+	//{
+	//	cout << "Error loading sound file" << endl;
+	//	while (!_kbhit());
+	//	return;
+	//}
+	//// Sources
+	//// Indicate that our sound source will use the buffer we just loaded
+	//enemySound.sound.setBuffer(enemySound.buffer);
+	//// Set the properties of the source. Details of all available properties are in the SFML documentation of the Sound class
+	//enemySound.sound.setVolume(100.0f); // 0 to 100
+	//enemySound.sound.setPitch(1.0f);
+	//enemySound.sound.setLoop(true);
+	//enemySound.sound.setPosition(enemySound.soundPos);
+
 	enemyList.push_back({ ballMesh->CreateModel(0, 0, 0),10.0f,  10, 0, 0.0f });
 	enemyList.push_back({ ballMesh->CreateModel(-100, 0, 0),10.0f,  10, 0, 0.0f });
 	enemyList.push_back({ ballMesh->CreateModel(-200, 0, 0),10.0f,  10, 0, 0.0f });
@@ -258,20 +305,31 @@ void main()
 	//////////////////////
 	while (myEngine->IsRunning())
 	{
-		// Draw the scene
-		myEngine->DrawScene();
-		frameTime = myEngine->Timer(); // Time between frames
-		//Developer(myCamera, myFont, gunDummy);
-		//Developer(myCamera, myFont,gunDummy, myEngine->GetMouseWheelMovement());
 
+<<<<<<< HEAD
+		///////////////////////
+		// POSITION LISTENER //
+		///////////////////////
+		/*listenerPos.x = myCamera->GetX();
+		listenerPos.y = myCamera->GetY();
+		listenerPos.z = myCamera->GetZ();
+
+		for (int i = 0; i < kNumSounds; ++i)
+		{
+
+		}*/
+
+=======
+		frameTime = myEngine->Timer(); // Time between frames
+>>>>>>> c53a9a59e7bd62a5efdc92746060d95f1a6573cc
 
 		///////////
 		// F P S // jons code
 		///////////
 
-		if (mode == fps)
+		if (Mode == Fps)
 		{
-
+			//old position
 			float oldX = fpsDummy->GetX();
 			float oldZ = fpsDummy->GetZ();
 
@@ -316,6 +374,33 @@ void main()
 				fpsDummy->MoveLocalX(frameTime * gameSpeed);
 				moved = true;
 			}
+
+			
+			if (moved)
+			{
+				ECollision col = colNone;
+				for (int x = 0; x < kSizeX; ++x)
+				{
+					for (int z = 0; z < kSizeZ; ++z)
+					{
+						if (Found(BuildingArray, x, z))
+						{
+							col = SphereBoxCD(oldX, oldZ, fpsDummy->GetX(), fpsDummy->GetZ(), 4.0f, BuildingArray[x][z]->GetModel()->GetX(), BuildingArray[x][z]->GetModel()->GetZ(), 5.0f * scale, 5.0f * scale);
+							if (col == xAxis)
+							{
+								fpsDummy->SetX(oldX);
+								
+							}
+							else if (col == zAxis)
+							{
+								fpsDummy->SetZ(oldZ);
+								
+							}
+						}
+					}
+				}
+			}
+			
 
 			if (moved)
 			{
@@ -442,37 +527,41 @@ void main()
 			///////////////////
 			bool shoot = false;
 
-				for (int x = 0; x < kSizeX; ++x)
+<<<<<<< HEAD
+			for (int x = 0; x < kSizeX; ++x)
+			{
+				for (int z = 0; z < kSizeZ; ++z)
+				{
+					BuildingArray[x][z]->Attack(enemyList, frameTime);
+				}
+
+=======
+			for (int x = 0; x < gMapWidth; ++x)
+			{
+				for (int z = 0; z < gMapHeight; ++z)
+
 				{
 					for (int z = 0; z < kSizeZ; ++z)
 					{
 							BuildingArray[x][z]->Attack(enemyList, frameTime);
 					}
 				
+				}
+>>>>>>> c53a9a59e7bd62a5efdc92746060d95f1a6573cc
 			}
-		}
 
 
 		////////////////////
 		// T O P  D O W N //
 		////////////////////
 
-		else if (mode == topDown)
+		else if (Mode == TopDown)
 		{
 
 			////////////////////////////
 			// P A T H  F I N D I N G // Dans Code
 			////////////////////////////
-
-			//Creating inital line
-			if (DoOnce)
-			{
-				if (Pathfind.AStar(Start, Goal, Pathfind.CurrentMap, CircleMesh))
-				{
-					Pathfind.LineMaker(CircleMesh);
-				}
-				DoOnce = !DoOnce;
-			}
+			
 
 			//////////////////////////////////
 			// T O W E R  P L A C E M E N T // Bens Code
@@ -483,11 +572,10 @@ void main()
 			myFont->Draw(outText.str(), 20, 20);
 			outText.str(""); // Clear myStream
 
-			//Cursor Movement
+			//Move the block that places the towers
 			if (myEngine->KeyHit(kKeyMoveUp))
 			{
-				int newZ = currentZ;
-				if (newZ < pBoundaryZ)
+				if (currentZ < pBoundaryZ)
 				{
 					CurrentTileModel->MoveZ(kCurrentMoveSpeed * scale);
 					currentZ++;
@@ -495,8 +583,7 @@ void main()
 			}
 			else if (myEngine->KeyHit(kKeyMoveDown))
 			{
-				int newZ = currentZ;
-				if (newZ > nBoundaryZ)
+				if (currentZ > nBoundaryZ)
 				{
 					CurrentTileModel->MoveZ(-kCurrentMoveSpeed * scale);
 					currentZ--;
@@ -504,8 +591,7 @@ void main()
 			}
 			else if (myEngine->KeyHit(kKeyMoveLeft))
 			{
-				int newX = currentX;
-				if (newX > nBoundaryX)
+				if (currentX > nBoundaryX)
 				{
 					CurrentTileModel->MoveX(-kCurrentMoveSpeed * scale);
 					currentX--;
@@ -513,8 +599,7 @@ void main()
 			}
 			else if (myEngine->KeyHit(kKeyMoveRight))
 			{
-				int newX = currentX;
-				if (newX < pBoundaryX)
+				if (currentX < pBoundaryX)
 				{
 					CurrentTileModel->MoveX(kCurrentMoveSpeed * scale);
 					currentX++;
@@ -551,12 +636,20 @@ void main()
 				{
 					++menuSelection;
 				}
+				else if(menuSelection == 5)
+				{
+					menuSelection = 1;
+				}
 			}
 			else if (wheelMovement < 0.0f)
 			{
 				if (menuSelection > 1)
 				{
 					--menuSelection;
+				}
+				else if (menuSelection == 1)
+				{
+					menuSelection = 5;
 				}
 			}
 
@@ -567,12 +660,20 @@ void main()
 				{
 					++menuSelection;
 				}
+				else if (menuSelection == 5)
+				{
+					menuSelection = 1;
+				}
 			}
 			else if (myEngine->KeyHit(Key_Left))
 			{
 				if (menuSelection > 1)
 				{
 					--menuSelection;
+				}
+				else if (menuSelection == 1)
+				{
+					menuSelection = 5;
 				}
 			}
 			
@@ -602,146 +703,33 @@ void main()
 				break;
 			}
 
+			//on selection
 			if (myEngine->KeyHit(kKeySelect))
 			{
 
 				switch (menuSelection)
 				{
 				case kBuildTowerButton:
-					// Create Tower
-
-					//if player has funds
-					if (player->GetBalance() > 0)
-					{
-						int x = currentX;
-						int z = currentZ;
-						bool CanCreate = false;
-						// If no building exists already
-						if (!Found(BuildingArray, x, z)) 
-						{
-							CanCreate = true;
-							//if tower is placed on Astar Line
-							for (int i = 0; i < Pathfind.FinalPath.size(); i++)
-							{
-								//find the tile that it was placed on
-								if (x == Pathfind.FinalPath[i]->x && z == Pathfind.FinalPath[i]->y)
-								{
-									Pathfind.CurrentMap[x][z] = 0; //set it to a wall
-									Pathfind.DeleteEverything(CircleMesh);
-									Pathfind.kCurveCounter = 0;
-									DisplayMap(Pathfind.CurrentMap);
-									//Check pathfinding
-									if (Pathfind.AStar(Start, Goal, Pathfind.CurrentMap, CircleMesh))
-									{
-										Pathfind.LineMaker(CircleMesh);
-									}
-									//if pathfinder didn't find its end
-									else
-									{
-										CanCreate = false;
-										Pathfind.CurrentMap[x][z] = 1;
-										Pathfind.DeleteEverything(CircleMesh);
-										Pathfind.kCurveCounter = 0;
-										DisplayMap(Pathfind.CurrentMap);
-										if (Pathfind.AStar(Start, Goal, Pathfind.CurrentMap, CircleMesh))
-										{
-											Pathfind.LineMaker(CircleMesh);
-										}
-									}
-
-								}
-							}
-						}
-						//if tower doesn't already exist
-						if (CanCreate)
-						{
-							//Set Map to 0
-							Pathfind.CurrentMap[x][z] = 0;
-
-							//Create the damn thing
-							BuildingArray[x][z]->CreateModel(currentX * scale * CubeSize, currentZ * scale * CubeSize, EBuildingType::tower1, Tower1Mesh, DummyMesh, AmmoMesh);
-							
-							// Deduct balance
-							player->ChangeBalance(kTower1Cost);
-						}
-					}
-
+					CreateTower(BuildingArray, DummyMesh, AmmoMesh, currentX, currentZ, tower1, Tower1Mesh, kTower1Cost);
 					break;
 				case kBuildWallButton:
-					// Create Wall
-					if (player->GetBalance() > 0)
-					{
-						int x = currentX;
-						int z = currentZ;
-						bool CanCreate = false;
-
-						// If no building exists already
-						if (!Found(BuildingArray, x, z))
-						{
-							CanCreate = true;
-							//if tower is placed on Astar Line
-							for (int i = 0; i < Pathfind.FinalPath.size(); i++)
-							{
-								//find the tile that it was placed on
-								if (x == Pathfind.FinalPath[i]->x && z == Pathfind.FinalPath[i]->y)
-								{
-									Pathfind.CurrentMap[x][z] = 0; //set it to a wall
-									Pathfind.DeleteEverything(CircleMesh);
-									Pathfind.kCurveCounter = 0;
-									DisplayMap(Pathfind.CurrentMap);
-									//Check pathfinding
-									if (Pathfind.AStar(Start, Goal, Pathfind.CurrentMap, CircleMesh))
-									{
-										Pathfind.LineMaker(CircleMesh);
-									}
-
-									//if pathfinder didn't find its end
-									else
-									{
-										CanCreate = false;
-										Pathfind.CurrentMap[x][z] = 1;
-										Pathfind.DeleteEverything(CircleMesh);
-										Pathfind.kCurveCounter = 0;
-										DisplayMap(Pathfind.CurrentMap);
-										if (Pathfind.AStar(Start, Goal, Pathfind.CurrentMap, CircleMesh))
-										{
-											Pathfind.LineMaker(CircleMesh);
-										}
-									}
-								}
-							}
-						}
-
-						if (CanCreate)
-						{
-							//Set Map to 0
-							Pathfind.CurrentMap[x][z] = 0;
-
-							BuildingArray[x][z]->CreateModel(currentX * scale * CubeSize, currentZ * scale * CubeSize, EBuildingType::wall, Wall1Mesh, DummyMesh, AmmoMesh);
-
-							player->ChangeBalance(kWall1Cost);
-						}
-					}
+					CreateTower(BuildingArray, DummyMesh, AmmoMesh, currentX, currentZ, wall, Wall1Mesh, kWall1Cost);
 					break;
 				case kUpgradeBuildingButton:
 				{
 					// Upgrade tower
 					if (player->GetBalance() + kTower2Cost >= 0)
 					{
-						int x = currentX;
-						int z = currentZ;
-
-						if (BuildingArray[x][z]->GetType() == tower1 && Found(BuildingArray, x, z))
+						if (BuildingArray[currentX][currentZ]->GetType() == tower1 && Found(BuildingArray, currentX, currentZ))
 						{
-							BuildingArray[x][z]->UpgradeBuilding(Tower2Mesh, currentX * scale * CubeSize, currentZ  * scale * CubeSize);
-
+							BuildingArray[currentX][currentZ]->UpgradeBuilding(Tower2Mesh, currentX * scale * CubeSize, currentZ  * scale * CubeSize);
 							player->ChangeBalance(kTower2Cost);
 
 							sounds[3].sound.play();
 						}
 					}
 				}
-				break;
+					break;
 				case kSellBuildingButton:
 				{
 					// Sell building
@@ -754,20 +742,23 @@ void main()
 
 						switch (type)
 						{
-						case 1:
-						{
+						case none:
+							break;
+						case tower1:
 							player->ChangeBalance(kTower1Sale);
 							break;
-						}
-						case 2:
-						{
+						case tower2:
 							player->ChangeBalance(kTower2Sale);
 							break;
-						}
+						case wall:
+							break;
+						default:
+							break;
 						}
 
 						BuildingArray[x][z]->SellBuilding(AmmoMesh);
 						Pathfind.CurrentMap[x][z] = 1; //set it to a wall
+<<<<<<< HEAD
 						Pathfind.DeleteEverything(CircleMesh);
 						Pathfind.kCurveCounter = 0;
 						DisplayMap(Pathfind.CurrentMap);
@@ -778,23 +769,26 @@ void main()
 						}
 
 						sounds[4].sound.play();
+=======
+						Pathfind.AStar(Start, Goal); //redo the path
+>>>>>>> master
 					}
 					break;
 				}
-				case kContinueButton:
+				case kContinueButton: 
 				{
-					if (mode == topDown)
+					if (Mode == TopDown)
 					{
-						mode = fps;
+						Mode = Fps;
 						SetCameraFPS(myCamera, fpsDummy);
 						CurrentTileModel->MoveY(-kHideY);
 						SMenuSprite->SetZ(-1);
 						gunModel->MoveY(kHideY);
 					}
 
-					else if (mode == fps)
+					else if (Mode == Fps)
 					{
-						mode = topDown;
+						Mode = TopDown;
 						SetCameraTopDown(myCamera);
 						CurrentTileModel->MoveY(kHideY);
 						for (int i = 0; i < kClipSize; ++i)
@@ -806,9 +800,9 @@ void main()
 						gunModel->MoveY(-kHideY);
 					}
 
-					else if (mode == start)
+					else if (Mode == StartGame)
 					{
-						mode = topDown;
+						Mode = TopDown;
 						SetCameraTopDown(myCamera);
 					}
 				}
@@ -817,24 +811,27 @@ void main()
 				}
 			}
 		}
+
 		// Game state: START
-		else if (mode == start)
+		else if (Mode == StartGame)
 		{
-			ModelTest->RotateLocalY(gameSpeed * frameTime * 0.01f);
+			StartModel->RotateLocalY( gameSpeed * frameTime);
 			myFont->Draw("Defender: A Tower Defence Game ", myEngine->GetWidth() / 2, 0, kBlack, kCentre);
 
 			//Collision detection for start button
 			if (myEngine->GetMouseX() < myEngine->GetWidth() && myEngine->GetMouseX() > (myEngine->GetWidth() * 0.75) &&
 				myEngine->GetMouseY() < myEngine->GetHeight() && myEngine->GetMouseY() > (myEngine->GetHeight() * 0.9)
 				)
+
 			{
 				if (myEngine->KeyHeld(Mouse_LButton))
 				{
 					SetCameraTopDown(myCamera);
 					StartButton->SetPosition(-1000, -1000);
-					ModelTest->ResetOrientation();
-					ModelTest->SetPosition(-CubeSize * 2.0f, 0.0f, 0.0f);
-					mode = topDown;
+					delete(StartButton);
+					StartModel->ResetOrientation();
+					StartModel->SetPosition(-CubeSize * 2.0f, 0.0f, 0.0f);
+					Mode = TopDown;
 				}
 			}
 
@@ -847,34 +844,49 @@ void main()
 		///////////////
 		// ANIMATION // - Placed here to stop tower freezing in air when switching to FPS mode
 		///////////////
-		bool built = false;
-		for (int x = 0; x < kSizeX; ++x)
+<<<<<<< HEAD
+		if (mode != start)
 		{
-			for (int z = 0; z < kSizeZ; ++z)
+			bool built = false;
+			for (int x = 0; x < kSizeX; ++x)
+=======
+		//built = false;
+		for (int x = 0; x < gMapWidth; ++x)
+		{
+			for (int z = 0; z < gMapHeight; ++z)
+>>>>>>> c53a9a59e7bd62a5efdc92746060d95f1a6573cc
 			{
-				if (Found(BuildingArray, x, z))
+				for (int z = 0; z < kSizeZ; ++z)
 				{
-					built = BuildingArray[x][z]->GetState();
-					if (built)
+					if (Found(BuildingArray, x, z))
 					{
-						BuildingArray[x][z]->AnimBuy(frameTime);
+						built = BuildingArray[x][z]->GetState();
+						if (built)
+						{
+							BuildingArray[x][z]->AnimBuy(frameTime);
+						}
 					}
 				}
 			}
 		}
 
-		//exit
+		
+		// Extra checks
 		if (myEngine->KeyHit(Key_Escape)) myEngine->Stop();
+
+
+		myEngine->DrawScene(); // Draw the scene
 	}
+
 
 	/////////////
 	// Delete // When the game loop exits and you need to clean up the tiles
 	////////////
 	CubeMesh->RemoveModel(GoalModel);
-	Pathfind.DeleteEverything(CircleMesh); //delete floor tiles and red squares
+	Pathfind.DeleteEverything(); //delete floor tiles and red squares
 	Pathfind.kCurveCounter = 0; // Reset
 
-								//Remove Floor Tiles
+	//Remove Floor Tiles
 	for (int i = 0; i < gMapWidth; i++)
 	{
 		for (int j = 0; j < gMapHeight; j++)
@@ -882,8 +894,10 @@ void main()
 			CubeMesh->RemoveModel(ModelArray[i][j]);
 		}
 	}
+
+
 	myEngine->Delete(); 	// Delete the 3D engine now we are finished with it
-	exit(0);
+	std::exit(0);
 }
 
 
@@ -922,7 +936,7 @@ void SetCameraTopDown(ICamera * myCamera)
 }
 
 
-bool Found(CBuilding* array[kSizeX][kSizeZ], int x, int z)
+bool Found(CBuilding* array[gMapWidth][gMapHeight], int x, int z)
 {
 	EBuildingType type = array[x][z]->GetType();
 
@@ -953,6 +967,37 @@ bool SphereSphereCD(float sphere1X, float sphere1Z, float sphere1Radius,
 	return false;
 }
 
+ECollision SphereBoxCD(float sphereCurrentX, float sphereCurrentZ,
+	float sphereNewX, float sphereNewZ, float sphereRadius,
+	float boxX, float boxZ, float halfBoxLength, float halfBoxWidth)
+{
+	/* BOUNDING BOX */
+	float boxMinX = boxX - halfBoxWidth - sphereRadius;
+	float boxMaxX = boxX + halfBoxWidth + sphereRadius;
+	float boxMinZ = boxZ - halfBoxLength - sphereRadius;
+	float boxMaxZ = boxZ + halfBoxLength + sphereRadius;
+
+	if (sphereNewX > boxMinX &&
+		sphereNewX < boxMaxX &&
+		sphereNewZ > boxMinZ &&
+		sphereNewZ < boxMaxZ
+		)
+	{
+		if (sphereCurrentX < boxMinX || sphereCurrentX > boxMaxX)
+		{
+			return ECollision::xAxis; // collision parallel to x axis
+		}
+		else
+		{
+			return ECollision::zAxis; // collision parallel to z axis
+		}
+	}
+	else
+	{
+		return ECollision::colNone;
+	}
+}
+
 float MAX(float a, float b)
 {
 	a < b ? a = b : a;
@@ -977,5 +1022,61 @@ void BorderCollision(IModel* fpsDummy, float oldX, float oldZ)
 	else if (fpsDummy->GetZ() < -5 * scale)
 	{
 		fpsDummy->SetZ(oldZ);
+	}
+}
+
+void ChangeState(gameType Type)
+{
+	switch (Type)
+	{
+	case StartGame:
+		break;
+	case TopDown:
+		myEngine->StopMouseCapture();
+
+
+		break;
+	case Fps:
+		myEngine->StartMouseCapture();
+
+
+		break;
+	case Paused:
+		break;
+	case End:
+		break;
+	default:
+		break;
+	}
+
+	
+
+
+}
+
+
+//BuildingArray[currentX][currentZ]->CreateModel
+//(currentX * scale * CubeSize, currentZ * scale * CubeSize, EBuildingType::tower1, Tower1Mesh, DummyMesh, AmmoMesh);
+//
+//player->ChangeBalance(kTower1Cost); // Deduct balance
+
+void CreateTower(CBuilding * BuildingArray[gMapWidth][gMapHeight], IMesh * DummyMesh, IMesh * AmmoMesh, int currentX, int currentZ, EBuildingType Type, IMesh * TowerMesh, int Cost)
+{
+	// Create Tower if player has funds
+	if (player->GetBalance() > -kTower1Cost)
+	{
+		//if tower doesn't already exist
+		if (!Found(BuildingArray, currentX, currentZ))
+		{
+
+			if (Pathfind.BuildTower(currentX, currentZ))
+			{
+				BuildingArray[currentX][currentZ]->CreateModel
+				(currentX * scale * CubeSize, currentZ * scale * CubeSize, Type, TowerMesh, DummyMesh, AmmoMesh);
+
+				player->ChangeBalance(Cost); // Deduct balance
+			}
+
+		}
 	}
 }
