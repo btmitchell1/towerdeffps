@@ -12,3 +12,13 @@ TowerDefenceFPS/Debug/TowerDefenceFPS.tlog/CL.command.1.tlog
 TowerDefenceFPS/Debug/TowerDefenceFPS.log
 TowerDefenceFPS/Debug/TowerDefenceFPS.obj
 *.obj
+*.tlog
+TowerDefenceFPS/.vs/TowerDefenceFPS/v15/.suo
+*.db
+TowerDefenceFPS/Debug/TowerDefenceFPS.log
+TowerDefenceFPS/Debug/TowerDefenceFPS.tlog/TowerDefenceFPS.lastbuildstate
+TowerDefenceFPS/Debug/vc141.idb
+TowerDefenceFPS/Debug/vc141.pdb
+TowerDefenceFPS/TowerDefenceFPS.pdb
+TowerDefenceFPS/TowerDefenceFPSDebug.exe
+TowerDefenceFPS/TowerDefenceFPSDebug.ilk
