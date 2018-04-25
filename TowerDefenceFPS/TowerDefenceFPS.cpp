@@ -37,7 +37,6 @@ sf::Vector3f listenerUp(0.0, 1.0, 0.0);
 
 void main()
 {
-<<<<<<< HEAD
 	const int kNumSounds = 7;
 	Sound sounds[kNumSounds];
 
@@ -81,13 +80,6 @@ void main()
 	sf::Listener::setDirection(listenerForward);
 	sf::Listener::setUpVector(listenerUp);
 
-
-	gameType mode = start;
-	// Create a 3D engine (using TLX engine here) and open a window for it
-	//myEngine->StartFullscreen();
-	myEngine->StartWindowed(1600, 900);
-	const int kMenuPosX = myEngine->GetWidth() - 1600;
-=======
 	////////////////
 	// S E T U P //
 	//////////////
@@ -104,7 +96,6 @@ void main()
 	
 	
 	const int kMenuPosX = 0;
->>>>>>> master
 	const int kMenuPosY = myEngine->GetHeight() - 120;
 
 	// Add default folder for meshes and other media
@@ -310,7 +301,7 @@ void main()
 			fpsDummy->RotateLocalY(cameraYRotation);
 			myCamera->RotateLocalX(cameraXRotation);
 
-			
+
 			//controls
 			if (myEngine->KeyHeld(Key_W))
 			{
@@ -466,14 +457,13 @@ void main()
 				for (int z = 0; z < gMapHeight; ++z)
 
 				{
-					for (int z = 0; z < kSizeZ; ++z)
+					if (BuildingArray[x][z] != NULL)
 					{
-							BuildingArray[x][z]->Attack(enemyList, frameTime);
+						BuildingArray[x][z]->Attack(enemyList, frameTime);
 					}
-				
 				}
 			}
-
+		}
 
 		////////////////////
 		// T O P  D O W N //
@@ -682,20 +672,7 @@ void main()
 
 						BuildingArray[x][z]->SellBuilding(AmmoMesh);
 						Pathfind.CurrentMap[x][z] = 1; //set it to a wall
-<<<<<<< HEAD
-						Pathfind.DeleteEverything(CircleMesh);
-						Pathfind.kCurveCounter = 0;
-						DisplayMap(Pathfind.CurrentMap);
-						//Check pathfinding
-						if (Pathfind.AStar(Start, Goal, Pathfind.CurrentMap, CircleMesh))
-						{
-							Pathfind.LineMaker(CircleMesh);
-						}
-
-						sounds[4].sound.play();
-=======
 						Pathfind.AStar(Start, Goal); //redo the path
->>>>>>> master
 					}
 					break;
 				}
